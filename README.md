@@ -10,17 +10,13 @@
 
 # Skills For Real Engineers
 
-[![skills.sh](https://skills.sh/b/mattpocock/skills)](https://skills.sh/mattpocock/skills)
+This is a personal fork of [Matt Pocock's skills repo](https://github.com/mattpocock/skills). I'm adapting it for my own use — with support for Cursor and Linear, plus a few changes and preferences that match how I work.
 
-My agent skills that I use every day to do real engineering - not vibe coding.
+The original is Matt's agent skills for real engineering — not vibe coding.
 
 Developing real applications is hard. Approaches like GSD, BMAD, and Spec-Kit try to help by owning the process. But while doing so, they take away your control and make bugs in the process hard to resolve.
 
 These skills are designed to be small, easy to adapt, and composable. They work with any model. They're based on decades of engineering experience. Hack around with them. Make them your own. Enjoy.
-
-If you want to keep up with changes to these skills, and any new ones I create, you can join ~60,000 other devs on my newsletter:
-
-[Sign Up To The Newsletter](https://www.aihero.dev/s/skills-newsletter)
 
 ## Installation (30-second setup)
 
