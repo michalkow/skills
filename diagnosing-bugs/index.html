@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://michalkow.github.io/skills/diagnosing-bugs/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>diagnosing-bugs - michalkow-skills</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "diagnosing-bugs";
+        var mkdocs_page_input_path = "diagnosing-bugs.md";
+        var mkdocs_page_url = "/skills/diagnosing-bugs/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> michalkow-skills
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Engineering</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >User-invoked</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ask-michal/">ask-michal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../grill-with-docs/">grill-with-docs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../triage/">triage</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../improve-codebase-architecture/">improve-codebase-architecture</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../setup-michalkow-skills/">setup-michalkow-skills</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../to-spec/">to-spec</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../to-tickets/">to-tickets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../implement/">implement</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../wayfinder/">wayfinder</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Model-invoked</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../prototype/">prototype</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">diagnosing-bugs</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../research/">research</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../tdd/">tdd</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../domain-modeling/">domain-modeling</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../codebase-design/">codebase-design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../code-review/">code-review</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../resolving-merge-conflicts/">resolving-merge-conflicts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../wizard/">wizard</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Productivity</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >User-invoked</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../grill-me/">grill-me</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../handoff/">handoff</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../teach/">teach</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../to-questionnaire/">to-questionnaire</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../wait-what/">wait-what</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Model-invoked</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../grilling/">grilling</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../writing-for-agents/">writing-for-agents</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dictionary</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/afk/">AFK</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/agents-md/">AGENTS.md</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/ai/">AI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/ax/">AX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/agent/">Agent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/agent-mode/">Agent mode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/attention-budget/">Attention budget</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/attention-degradation/">Attention degradation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/attention-relationship/">Attention relationship</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/autocompact/">Autocompact</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/automated-check/">Automated check</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/automated-review/">Automated review</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/cache-tokens/">Cache tokens</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/clearing/">Clearing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/compaction/">Compaction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/context/">Context</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/context-pointer/">Context pointer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/context-window/">Context window</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/contextual-knowledge/">Contextual knowledge</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/dx/">DX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/design-concept/">Design concept</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/effort/">Effort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/environment/">Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/filesystem/">Filesystem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/grilling/">Grilling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/hallucination/">Hallucination</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/handoff/">Handoff</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/handoff-artifact/">Handoff artifact</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/harness/">Harness</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/human-review/">Human review</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/human-in-the-loop/">Human-in-the-loop</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/inference/">Inference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/input-tokens/">Input tokens</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/knowledge-cutoff/">Knowledge cutoff</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/mcp/">MCP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/memory-system/">Memory system</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/model/">Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/model-provider/">Model provider</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/model-provider-request/">Model provider request</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/next-token-prediction/">Next-token prediction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/non-determinism/">Non-determinism</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/output-tokens/">Output tokens</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/parameters/">Parameters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/parametric-knowledge/">Parametric knowledge</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/permission-mode/">Permission mode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/permission-request/">Permission request</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/prefix-cache/">Prefix cache</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/primary-source/">Primary source</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/progressive-disclosure/">Progressive disclosure</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/prototyping/">Prototyping</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/sandbox/">Sandbox</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/secondary-source/">Secondary source</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/session/">Session</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/skill/">Skill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/smart-zone/">Smart zone</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/spec/">Spec</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/stateful/">Stateful</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/stateless/">Stateless</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/subagent/">Subagent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/sycophancy/">Sycophancy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/system-prompt/">System prompt</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/ticket/">Ticket</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/token/">Token</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/tool/">Tool</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/tool-call/">Tool call</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/tool-result/">Tool result</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/training/">Training</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/turn/">Turn</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/vibe-coding/">Vibe coding</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">michalkow-skills</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Engineering</li>
+          <li class="breadcrumb-item">Model-invoked</li>
+      <li class="breadcrumb-item active">diagnosing-bugs</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/michalkow/skills/edit/master/docs/diagnosing-bugs.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="what-it-does">What it does</h2>
+<p><code>diagnosing-bugs</code> runs a six-phase diagnosis on a hard bug or a performance regression: build a repro, minimise it, rank hypotheses, instrument, fix with a regression test, clean up.</p>
+<p>It will not let the agent form a theory until a <strong>tight</strong> feedback loop exists — one named command, already run once, that goes red on <em>this</em> bug and green when it is fixed. The default behaviour of a coding agent handed a bug report is to read code and guess; this skill blocks that. If no red-capable command exists, there is no Phase 2. That single gate is what the skill is for. Everything after it — bisection, hypothesis-testing, instrumentation — is mechanical once the signal exists.</p>
+<h2 id="when-to-reach-for-it">When to reach for it</h2>
+<p>Type <code>/diagnosing-bugs</code>, or the agent reaches for it on its own when a task fits — it is model-invoked, and fires on "diagnose" / "debug this" or on a report that something is broken, throwing, failing, or slow.</p>
+<p>Reach for it on the hard ones: a bug that resists a first look, an intermittent flake, a regression that crept in between two known-good states. It is heavy by design, and the wrong tool for a question you want answered in one message.</p>
+<table>
+<thead>
+<tr>
+<th>Your situation</th>
+<th>Where to go</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A specific defect you can describe as a symptom</td>
+<td>This skill</td>
+</tr>
+<tr>
+<td>A slow endpoint or a timing regression with a known before-and-after</td>
+<td>This skill — it has a performance branch (measure a baseline, then bisect)</td>
+</tr>
+<tr>
+<td>"Where are the bottlenecks in this codebase?" — no specific symptom</td>
+<td>Not this skill. It diagnoses one known failure, it does not audit</td>
+</tr>
+<tr>
+<td>A raw bug report from someone else, not yet confirmed or written up</td>
+<td><a href="https://michalkow.github.io/skills/triage">triage</a> first</td>
+</tr>
+<tr>
+<td>Throwaway code to answer a design question, not chase a defect</td>
+<td><a href="https://michalkow.github.io/skills/prototype">prototype</a></td>
+</tr>
+<tr>
+<td>Building a planned behaviour test-first</td>
+<td><a href="https://michalkow.github.io/skills/tdd">tdd</a></td>
+</tr>
+<tr>
+<td>No good seam exists to lock the bug down</td>
+<td><a href="https://michalkow.github.io/skills/improve-codebase-architecture">improve-codebase-architecture</a> — this skill hands off there itself</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-tight-loop-is-the-skill">The tight loop is the skill</h2>
+<p>Phase 1 gets disproportionate effort because it is the only phase that is hard. The skill gives a ladder of ways to construct the loop, roughly in order of preference:</p>
+<ol>
+<li>A failing test at whatever seam reaches the bug.</li>
+<li>A curl or HTTP script against a running dev server.</li>
+<li>A CLI invocation with a fixture input, diffed against a known-good snapshot.</li>
+<li>A headless browser script asserting on DOM, console, or network.</li>
+<li>A replayed capture — a saved request, payload, or event log, run through the code path in isolation.</li>
+<li>A throwaway harness: a minimal subset of the system, one function call.</li>
+<li>A property or fuzz loop, for "sometimes wrong output".</li>
+<li>A bisection harness you can hand to <code>git bisect run</code>.</li>
+<li>A differential loop — same input, old version against new.</li>
+<li>A <a href="https://michalkow.github.io/skills/dictionary/human-in-the-loop">human-in-the-loop</a> bash script, last resort. The skill ships <code>scripts/hitl-loop.template.sh</code> for this: the agent runs the script, you follow prompts in your terminal, and your answers come back as parseable output.</li>
+</ol>
+<p><em>A</em> loop is not the goal. <strong>Tight</strong> is: fast (seconds), deterministic (same verdict every run), sharp (asserts your exact symptom, not "didn't crash"), and agent-runnable unattended. A 30-second flaky loop is barely better than none. For a bug that only shows up sometimes, the target is not a clean repro but a <strong>higher reproduction rate</strong> — loop the trigger, parallelise, add stress, inject sleeps, until the flake rate is high enough to debug against.</p>
+<p>When it genuinely cannot build one, it is instructed to stop and say so, list what it tried, and ask you for <a href="https://michalkow.github.io/skills/dictionary/environment">environment</a> access, a captured artifact, or permission to add temporary instrumentation. It should not proceed to hypothesise anyway.</p>
+<h2 id="the-gates-between-phases">The gates between phases</h2>
+<p>The phases are gates, not a checklist. Each one refuses to open until something specific is true.</p>
+<table>
+<thead>
+<tr>
+<th>Gate</th>
+<th>What has to be true</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Into Phase 2</td>
+<td>A named command, already run and pasted with its output, that can go red on this bug</td>
+</tr>
+<tr>
+<td>Into Phase 3</td>
+<td>The repro is reproduced <em>and</em> minimised — every remaining element is load-bearing</td>
+</tr>
+<tr>
+<td>Into Phase 4</td>
+<td>3–5 ranked, falsifiable hypotheses exist, each stating its prediction, shown to you before any is tested</td>
+</tr>
+<tr>
+<td>Into Phase 5</td>
+<td>Probes map to a specific prediction, one variable at a time, every debug log tagged <code>[DEBUG-a4f2]</code>-style so cleanup is one grep</td>
+</tr>
+<tr>
+<td>Done</td>
+<td>Original repro no longer reproduces, instrumentation gone, and the hypothesis that turned out correct is written into the commit message</td>
+</tr>
+</tbody>
+</table>
+<p>Phase 5 has an escape hatch worth knowing about. The regression test is written before the fix, but only if a <strong>correct seam</strong> exists for it — one where the test exercises the real bug pattern as it occurs at the call site. Where the only available seam is too shallow, the skill is told to say so rather than write a test that gives false confidence. That absence is itself the finding, and it is what routes the post-mortem to <code>improve-codebase-architecture</code>.</p>
+<h2 id="common-questions">Common questions</h2>
+<p><strong>It fires on quick questions where I just wanted a direct answer.</strong>
+This is the most-reported problem with the skill, and it is real. On GPT-5.6-Sol especially, users report it triggering on a plain description of a problem: "the model triggers the rather formal diagnosing-bugs skill instead. It then goes on to construct a reproduction scenario — often building a mock scenario with limited value — before giving me a response or suggestion. This results in considerable reply delays." Four separate people reported the same shape on <a href="https://github.com/mattpocock/skills/issues/578">issue #578</a>. The accepted fix is to start with a lighter approach and graduate to the heavier one only where the problem warrants it, but that change has not landed. The skill is calibrated against Claude Code's invocation behaviour; a <a href="https://michalkow.github.io/skills/dictionary/model">model</a> with a lower activation threshold over-fires it. Until it is graduated, the practical fix is to say what you want ("just answer this, don't diagnose") or to disable model invocation for it in your <a href="https://michalkow.github.io/skills/dictionary/harness">harness</a>.</p>
+<p><strong>Can I point it at a codebase and ask where the performance problems are?</strong>
+No. It diagnoses one failure you can already name. Its performance branch is for a regression with a symptom — establish a baseline measurement, then bisect, measure first and fix second — not for a proactive sweep. A skill for the proactive version was <a href="https://github.com/mattpocock/skills/issues/431">proposed and closed</a>; there is currently no skill for it.</p>
+<p><strong>Does it stop and ask me before it writes the fix?</strong>
+No. Only Phase 3 has a human checkpoint — the ranked hypothesis list is shown to you before any is tested, and it proceeds on its own ranking if you are away. There is no gate between instrumentation and the fix, so the agent can start writing code before you have agreed with its root cause. <a href="https://github.com/mattpocock/skills/issues/124">Issue #124</a> asks for that gate and is still open. If you want it, say so when you invoke the skill.</p>
+<p><strong>I already ran <code>/triage</code> on this bug report. Is this the same work again?</strong>
+Partly, and neither skill admits it. As one reader put it: "Triage's step 3 is essentially a shallow, bounded instance of diagnosing-bugs Phase 1–2, but neither file mentions the other." Triage does a bounded "is this actually a bug, and what is the surface" pass; this skill does the thorough version. Running triage first is not wasted — its verification often gives you most of Phase 1's raw material — but expect to redo it properly here, and expect no cross-reference to tell you that.</p>
+<p><strong>Will the repro output it pastes leak secrets?</strong>
+It might. The skill asks the agent to paste the invocation and its output, and to request artifacts like HAR files, log dumps, and core dumps. None of those are sanitised by instruction. <a href="https://github.com/mattpocock/skills/issues/674">Issue #674</a> raises exactly this — credentials, tokens, cookies, and personal data riding along into a chat, an issue, or a PR — and proposes a redaction guardrail. It is open and unimplemented. Treat redaction as your job for now, particularly before the output goes anywhere public.</p>
+<p><strong>My security scanner flagged this skill as high risk.</strong>
+Snyk flags it, and the flag is a false positive. It is the only skill in the set that ships an executable shell script (<code>hitl-loop.template.sh</code>) alongside instructions to run it and to curl a dev server. Shipped <code>.sh</code> plus run-it instructions plus outbound HTTP is enough to trip a static scanner. The script itself is about 30 lines of <code>read -r -p</code> prompts that pause for human input. The scanner is rating the capability surface, not a proven exploit.</p>
+<p><strong>What happened to <code>/diagnose</code>?</strong>
+Renamed to <code>/diagnosing-bugs</code> in v1.0.0. The old name no longer exists. Anything of yours that chains <code>/diagnose</code> — a wrapper skill, a saved prompt — needs updating.</p>
+<h2 id="its-working-if">It's working if</h2>
+<ul>
+<li>It shows you a command and its red output before it offers a single theory. If theory arrives first, the skill is not running.</li>
+<li>The failure it reproduces is the one you reported, not a nearby one it found on the way.</li>
+<li>It shrinks the repro before it starts guessing, and can tell you why each remaining piece is load-bearing.</li>
+<li>You are shown a ranked list of 3–5 hypotheses, each with a prediction you could falsify, before any of them is tested.</li>
+<li>Every debug log it adds carries a tag like <code>[DEBUG-a4f2]</code>, and a grep for that tag comes back empty when it declares done.</li>
+<li>The commit or PR message names which hypothesis was right.</li>
+<li>When it cannot lock the bug down with a test, it says so plainly instead of writing a shallow one.</li>
+</ul>
+<h2 id="where-it-fits">Where it fits</h2>
+<p><code>diagnosing-bugs</code> is a reach-for-it-anytime standalone. You drop into it when something is broken and drop out when the fix and its regression test are in; it holds no state and needs no prior setup. <a href="https://michalkow.github.io/skills/ask-michal">ask-michal</a> routes "Something's broken" here.</p>
+<p>Two neighbours matter. <a href="https://michalkow.github.io/skills/improve-codebase-architecture">improve-codebase-architecture</a> takes the <a href="https://michalkow.github.io/skills/dictionary/handoff">handoff</a> when the real finding is that the code has no seam to lock the bug down — the recommendation is made after the fix is in, when there is more information. <a href="https://michalkow.github.io/skills/triage">triage</a> sits upstream of it for bugs that arrive as raw reports from other people, and does a shallower version of the same first two phases.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../prototype/" class="btn btn-neutral float-left" title="prototype"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../research/" class="btn btn-neutral float-right" title="research">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/michalkow/skills" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../prototype/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../research/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://michalkow.github.io/skills/tdd/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>tdd - michalkow-skills</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "tdd";
+        var mkdocs_page_input_path = "tdd.md";
+        var mkdocs_page_url = "/skills/tdd/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> michalkow-skills
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Engineering</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" >User-invoked</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../ask-michal/">ask-michal</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../grill-with-docs/">grill-with-docs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../triage/">triage</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../improve-codebase-architecture/">improve-codebase-architecture</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../setup-michalkow-skills/">setup-michalkow-skills</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../to-spec/">to-spec</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../to-tickets/">to-tickets</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../implement/">implement</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../wayfinder/">wayfinder</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" >Model-invoked</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../prototype/">prototype</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../diagnosing-bugs/">diagnosing-bugs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../research/">research</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">tdd</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../domain-modeling/">domain-modeling</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../codebase-design/">codebase-design</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../code-review/">code-review</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../resolving-merge-conflicts/">resolving-merge-conflicts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../wizard/">wizard</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Productivity</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" >User-invoked</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../grill-me/">grill-me</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../handoff/">handoff</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../teach/">teach</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../to-questionnaire/">to-questionnaire</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../wait-what/">wait-what</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >Model-invoked</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../grilling/">grilling</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../writing-for-agents/">writing-for-agents</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Dictionary</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/afk/">AFK</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/agents-md/">AGENTS.md</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/ai/">AI</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/ax/">AX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/agent/">Agent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/agent-mode/">Agent mode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/attention-budget/">Attention budget</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/attention-degradation/">Attention degradation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/attention-relationship/">Attention relationship</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/autocompact/">Autocompact</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/automated-check/">Automated check</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/automated-review/">Automated review</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/cache-tokens/">Cache tokens</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/clearing/">Clearing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/compaction/">Compaction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/context/">Context</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/context-pointer/">Context pointer</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/context-window/">Context window</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/contextual-knowledge/">Contextual knowledge</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/dx/">DX</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/design-concept/">Design concept</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/effort/">Effort</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/environment/">Environment</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/filesystem/">Filesystem</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/grilling/">Grilling</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/hallucination/">Hallucination</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/handoff/">Handoff</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/handoff-artifact/">Handoff artifact</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/harness/">Harness</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/human-review/">Human review</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/human-in-the-loop/">Human-in-the-loop</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/inference/">Inference</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/input-tokens/">Input tokens</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/knowledge-cutoff/">Knowledge cutoff</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/mcp/">MCP</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/memory-system/">Memory system</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/model/">Model</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/model-provider/">Model provider</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/model-provider-request/">Model provider request</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/next-token-prediction/">Next-token prediction</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/non-determinism/">Non-determinism</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/output-tokens/">Output tokens</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/parameters/">Parameters</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/parametric-knowledge/">Parametric knowledge</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/permission-mode/">Permission mode</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/permission-request/">Permission request</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/prefix-cache/">Prefix cache</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/primary-source/">Primary source</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/progressive-disclosure/">Progressive disclosure</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/prototyping/">Prototyping</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/sandbox/">Sandbox</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/secondary-source/">Secondary source</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/session/">Session</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/skill/">Skill</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/smart-zone/">Smart zone</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/spec/">Spec</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/stateful/">Stateful</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/stateless/">Stateless</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/subagent/">Subagent</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/sycophancy/">Sycophancy</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/system-prompt/">System prompt</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/ticket/">Ticket</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/token/">Token</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/tool/">Tool</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/tool-call/">Tool call</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/tool-result/">Tool result</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/training/">Training</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/turn/">Turn</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dictionary/vibe-coding/">Vibe coding</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">michalkow-skills</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Engineering</li>
+          <li class="breadcrumb-item">Model-invoked</li>
+      <li class="breadcrumb-item active">tdd</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/michalkow/skills/edit/master/docs/tdd.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="what-it-does">What it does</h2>
+<p><code>tdd</code> builds a feature or fixes a bug test-first: one failing test, then just enough code to pass it, then the next behaviour. It carries the standards that make that loop produce tests worth keeping — what a good test is, where tests go, what mocks are for, and the three anti-patterns that quietly ruin a suite.</p>
+<p>It writes no test at a seam you have not agreed to first. Before any test exists, it names the public boundaries it intends to test at and stops for your confirmation, because testing effort is finite and this is where you spend it on the critical paths instead of on every edge case. The other thing to know is that <code>tdd</code> is a <strong>reference</strong>, not a driver. It holds the rules of the loop, and something else (you, or <a href="https://michalkow.github.io/skills/implement">implement</a>) runs the <a href="https://michalkow.github.io/skills/dictionary/session">session</a> that applies them.</p>
+<h2 id="when-to-reach-for-it">When to reach for it</h2>
+<p>Type <code>/tdd</code>, or the <a href="https://michalkow.github.io/skills/dictionary/agent">agent</a> reaches for it automatically when a task fits — building a feature or fixing a bug test-first, or when you say "red-green-refactor".</p>
+<p>Reach for it when there is a concrete behaviour to build, with an input and an observable output, and you want tests that survive a refactor.</p>
+<table>
+<thead>
+<tr>
+<th>Your situation</th>
+<th>Where to go</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A behaviour with defined inputs and outputs — business logic, a request/response contract, a transformation, validation</td>
+<td><code>tdd</code></td>
+</tr>
+<tr>
+<td>The behaviour isn't pinned down yet</td>
+<td><a href="https://michalkow.github.io/skills/to-spec">to-spec</a>, which also agrees the test seams before any code is written</td>
+</tr>
+<tr>
+<td>The question is really the shape of the interface, not the tests</td>
+<td><a href="https://michalkow.github.io/skills/codebase-design">codebase-design</a></td>
+</tr>
+<tr>
+<td>You have a <a href="https://michalkow.github.io/skills/dictionary/spec">spec</a> or <a href="https://michalkow.github.io/skills/dictionary/ticket">tickets</a> and want the whole build run for you</td>
+<td><a href="https://michalkow.github.io/skills/implement">implement</a>, which drives <code>tdd</code> per ticket</td>
+</tr>
+<tr>
+<td>Config, wiring, glue, type annotations, straight CRUD delegation</td>
+<td>Nothing here fits well — see the open gap below</td>
+</tr>
+</tbody>
+</table>
+<p>That last row is a real hole, not a stylistic preference. The skill decides <em>where</em> the seams go; nothing in it decides <em>whether</em> a change is worth the loop at all. Run it on a change with no independent source of truth to assert against and you get a test that restates the implementation — the tautological anti-pattern the skill itself warns about, arrived at from the other direction. It is <a href="https://github.com/mattpocock/skills/issues/746">issue #746</a> and it is open. Until it closes, that judgement is yours or your <code>CLAUDE.md</code>'s.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p><a href="https://michalkow.github.io/skills/codebase-design">codebase-design</a> needs to be installed. <code>tdd</code> used to carry its own deep-module and interface-design notes; in v1.0 those were deleted in favour of the shared skill, and <code>tdd</code> now leans on it for interface-design vocabulary. Nothing else — the skill is <a href="https://michalkow.github.io/skills/dictionary/stateless">stateless</a> and writes no files of its own.</p>
+<h2 id="the-loop-and-the-seam-it-runs-at">The loop, and the seam it runs at</h2>
+<p>Three words carry this skill.</p>
+<p><strong>Red-green.</strong> Write the failing test, then only enough code to pass it. No anticipating the test after next. There is no refactor phase: it was dropped in June 2026 because agents essentially never performed it, and because review and implementation work better as separate sessions. Refactoring belongs to <a href="https://michalkow.github.io/skills/code-review">code-review</a>.</p>
+<p><strong>Vertical slice.</strong> One seam, one test, one minimal implementation, then repeat — the first cycle being a <strong>tracer bullet</strong> that proves a single path end to end. The opposite is horizontal slicing: all the tests first, then all the code. Bulk tests verify <em>imagined</em> behaviour, they check the shape of things rather than what a user does, and they commit you to a test structure before you understand the implementation.</p>
+<p><strong>Pre-agreed seam.</strong> A seam is the public boundary you observe behaviour at without reaching inside. The rule is absolute: no test at an unconfirmed seam. In the full chain the seams are agreed earlier, during <a href="https://michalkow.github.io/skills/to-spec">to-spec</a> — "<code>/tdd</code> is told to only work at pre-agreed test seams, <code>/code-review</code> checks that only agreed-upon test seams were used." Invoked on its own, <code>tdd</code> asks you directly.</p>
+<p>The three anti-patterns it is written to prevent:</p>
+<table>
+<thead>
+<tr>
+<th>Anti-pattern</th>
+<th>The tell</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Implementation-coupled</td>
+<td>The test breaks when you rename an internal function, though behaviour did not change. Mocked internal collaborators, asserted call counts, database queries used to verify instead of the interface.</td>
+</tr>
+<tr>
+<td>Tautological</td>
+<td>The expected value is computed the way the code computes it, so the test passes by construction. Expected values have to come from somewhere else — a known-good literal, a worked example, the spec.</td>
+</tr>
+<tr>
+<td>Horizontal slicing</td>
+<td>A batch of tests landed before any implementation.</td>
+</tr>
+</tbody>
+</table>
+<p>Mocks are for system boundaries only — external APIs, time, randomness, sometimes the filesystem or the database. Not your own modules.</p>
+<h2 id="common-questions">Common questions</h2>
+<p><strong>Why doesn't it refactor? The description says "red-green-refactor".</strong></p>
+<p>Because the refactor step was removed and the description was not. The removal was deliberate: agents essentially never did it, and keeping implementation and review in separate sessions works better. Whether the result still counts as TDD by the book matters less than whether the loop produces better code. The mismatch between the trigger phrase and the body is filed as <a href="https://github.com/mattpocock/skills/issues/589">issue #589</a> and is still open, so "red-green-refactor" continues to work as a phrase that fires the skill. What you get is red → green, and refactoring in <a href="https://michalkow.github.io/skills/code-review">code-review</a>.</p>
+<p><strong>It asked me to choose a test seam and I had no idea which to pick.</strong></p>
+<p>This is the most-reported friction with the skill (<a href="https://github.com/mattpocock/skills/issues/607">issue #607</a>). The prompt lists candidate seams by name only, with nothing about what each one catches or misses, so you are choosing between labels. There is no fix shipped yet. The practical workaround is to ask the agent for the trade-offs before answering — what does the component-level seam miss that the integration seam catches, and how much slower is it. It is also why the chain agrees seams up front in <code>to-spec</code>, where you have the whole feature in view rather than one prompt.</p>
+<p><strong>It wrote the implementation before the test, even though the skill says red first.</strong></p>
+<p>It happens. One user pushed the <a href="https://michalkow.github.io/skills/dictionary/model">model</a> on it and got an unusually honest answer: "I knew the skill said 'one test at a time, watch it fail for the right reason' — I read it. I just defaulted to my normal habit." The skill is written to live with this. No instruction makes an agent comply 100% of the time, and forcing the point harder restricts the agent's creativity for little gain — the loop is worth running even when it is not followed strictly, because the results are still better overall. If strict adherence matters for a particular slice, watch the run rather than trusting the skill to enforce it.</p>
+<p><strong>Should it write browser or end-to-end tests first?</strong></p>
+<p>Usually not, and the skill will not stop it. A user reported the agent writing a Playwright test first, then burning a long loop re-running it and concluding the <em>test</em> was broken for a feature that did not exist yet. Configure this in your <code>CLAUDE.md</code>. Browser tests are slow enough that the red-green feedback loop stops paying for itself; declare in your repo's <code>CLAUDE.md</code> that they are written after the behaviour works.</p>
+<p><strong>Does <code>/tdd</code> replace <code>/implement</code>, or the course's <code>/do-work</code>?</strong></p>
+<p>No. <code>/tdd</code> documents the methodology; <code>/implement</code> is a very simple work→feedback→commit loop and is the direct stand-in for <code>/do-work</code>. The course's single <code>/do-work</code> step is now split across <code>/implement</code>, <code>/tdd</code> and <code>/code-review</code>. If you are asking which one to run against a ticket, the answer is almost always <code>/implement</code>.</p>
+<p><strong>Where did the deep-modules and interface-design guidance go?</strong></p>
+<p>Into <a href="https://michalkow.github.io/skills/codebase-design">codebase-design</a> in v1.0, generalised so several skills share one vocabulary. <code>refactoring.md</code> left at the same time; refactoring is now <a href="https://michalkow.github.io/skills/code-review">code-review</a>'s job, and that skill carries the Fowler smell baseline.</p>
+<p><strong>Does it know about my other tickets?</strong></p>
+<p>No. Run against one ticket, it will happily propose work that belongs to a sibling ticket, because it has no view of the rest of the issue graph (<a href="https://github.com/mattpocock/skills/issues/129">issue #129</a>). Matt's position is that this is not <code>tdd</code>'s job. Passing the spec alongside the ticket helps; right-sizing the tickets in the first place helps more.</p>
+<h2 id="its-working-if">It's working if</h2>
+<ul>
+<li>It stops and names the seams it intends to test at, and waits, before any test file exists.</li>
+<li>One test appears, goes red, gets just enough code to pass, and only then does the next test appear — not a batch of tests followed by a batch of code.</li>
+<li>Test names read as capabilities ("user can checkout with valid cart"), not as internals ("checkout calls paymentService.process").</li>
+<li>Expected values in assertions are literals you can trace to the spec, not values recomputed the way the code computes them.</li>
+<li>Renaming an internal function breaks nothing in the suite.</li>
+<li>Mocks appear only at external boundaries — the payment API, the clock — and never around your own modules.</li>
+</ul>
+<h2 id="where-it-fits">Where it fits</h2>
+<p><code>tdd</code> is the engine inside the build step of the main chain, rather than a step of its own:</p>
+<pre><code class="language-txt">grill-with-docs → to-spec → to-tickets → implement → code-review
+</code></pre>
+<p><a href="https://michalkow.github.io/skills/to-spec">to-spec</a> agrees the test seams up front, <a href="https://michalkow.github.io/skills/implement">implement</a> drives <code>tdd</code> per ticket, and <a href="https://michalkow.github.io/skills/code-review">code-review</a> checks afterwards that only the agreed seams were used — and owns the refactoring <code>tdd</code> no longer does. Its other neighbour is <a href="https://michalkow.github.io/skills/codebase-design">codebase-design</a>, the shared source of the seam and deep-module vocabulary <code>tdd</code> speaks. You can also reach for it on its own, whenever there is a concrete behaviour to build and no full spec in play. When you are unsure which skill fits your situation, <a href="https://michalkow.github.io/skills/ask-michal">ask-michal</a> routes you.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../research/" class="btn btn-neutral float-left" title="research"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../domain-modeling/" class="btn btn-neutral float-right" title="domain-modeling">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/michalkow/skills" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../research/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../domain-modeling/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
