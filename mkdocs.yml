@@ -37,4 +37,74 @@ nav:
       - Model-invoked:
           - grilling: grilling.md
           - writing-for-agents: writing-for-agents.md
+  - Dictionary:
+      - AFK: dictionary/afk.md
+      - AGENTS.md: dictionary/agents-md.md
+      - AI: dictionary/ai.md
+      - AX: dictionary/ax.md
+      - Agent: dictionary/agent.md
+      - Agent mode: dictionary/agent-mode.md
+      - Attention budget: dictionary/attention-budget.md
+      - Attention degradation: dictionary/attention-degradation.md
+      - Attention relationship: dictionary/attention-relationship.md
+      - Autocompact: dictionary/autocompact.md
+      - Automated check: dictionary/automated-check.md
+      - Automated review: dictionary/automated-review.md
+      - Cache tokens: dictionary/cache-tokens.md
+      - Clearing: dictionary/clearing.md
+      - Compaction: dictionary/compaction.md
+      - Context: dictionary/context.md
+      - Context pointer: dictionary/context-pointer.md
+      - Context window: dictionary/context-window.md
+      - Contextual knowledge: dictionary/contextual-knowledge.md
+      - DX: dictionary/dx.md
+      - Design concept: dictionary/design-concept.md
+      - Effort: dictionary/effort.md
+      - Environment: dictionary/environment.md
+      - Filesystem: dictionary/filesystem.md
+      - Grilling: dictionary/grilling.md
+      - Hallucination: dictionary/hallucination.md
+      - Handoff: dictionary/handoff.md
+      - Handoff artifact: dictionary/handoff-artifact.md
+      - Harness: dictionary/harness.md
+      - Human review: dictionary/human-review.md
+      - Human-in-the-loop: dictionary/human-in-the-loop.md
+      - Inference: dictionary/inference.md
+      - Input tokens: dictionary/input-tokens.md
+      - Knowledge cutoff: dictionary/knowledge-cutoff.md
+      - MCP: dictionary/mcp.md
+      - Memory system: dictionary/memory-system.md
+      - Model: dictionary/model.md
+      - Model provider: dictionary/model-provider.md
+      - Model provider request: dictionary/model-provider-request.md
+      - Next-token prediction: dictionary/next-token-prediction.md
+      - Non-determinism: dictionary/non-determinism.md
+      - Output tokens: dictionary/output-tokens.md
+      - Parameters: dictionary/parameters.md
+      - Parametric knowledge: dictionary/parametric-knowledge.md
+      - Permission mode: dictionary/permission-mode.md
+      - Permission request: dictionary/permission-request.md
+      - Prefix cache: dictionary/prefix-cache.md
+      - Primary source: dictionary/primary-source.md
+      - Progressive disclosure: dictionary/progressive-disclosure.md
+      - Prototyping: dictionary/prototyping.md
+      - Sandbox: dictionary/sandbox.md
+      - Secondary source: dictionary/secondary-source.md
+      - Session: dictionary/session.md
+      - Skill: dictionary/skill.md
+      - Smart zone: dictionary/smart-zone.md
+      - Spec: dictionary/spec.md
+      - Stateful: dictionary/stateful.md
+      - Stateless: dictionary/stateless.md
+      - Subagent: dictionary/subagent.md
+      - Sycophancy: dictionary/sycophancy.md
+      - System prompt: dictionary/system-prompt.md
+      - Ticket: dictionary/ticket.md
+      - Token: dictionary/token.md
+      - Tool: dictionary/tool.md
+      - Tool call: dictionary/tool-call.md
+      - Tool result: dictionary/tool-result.md
+      - Training: dictionary/training.md
+      - Turn: dictionary/turn.md
+      - Vibe coding: dictionary/vibe-coding.md
 theme: readthedocs

@@ -1,12 +1,12 @@
 ## What it does
 
-`teach` turns the directory you run it in into a standing teaching workspace and teaches you one topic across many [sessions](https://michalkow.github.io/dictionary-of-ai-coding/session), in short self-contained HTML lessons.
+`teach` turns the directory you run it in into a standing teaching workspace and teaches you one topic across many [sessions](https://michalkow.github.io/skills/dictionary/session), in short self-contained HTML lessons.
 
-It does not teach from what the [model](https://michalkow.github.io/dictionary-of-ai-coding/model) already knows. [Parametric knowledge](https://michalkow.github.io/dictionary-of-ai-coding/parametric-knowledge) is treated as untrusted: before it teaches, it goes and finds high-trust resources, records them in `RESOURCES.md`, and cites them inside every lesson. The other structural fact is that it is [stateful](https://michalkow.github.io/dictionary-of-ai-coding/stateful) — the mission, the resources, the lessons and the record of what you have learned all live in the directory as files, so the next session picks up from those files rather than from whatever is left of the last conversation.
+It does not teach from what the [model](https://michalkow.github.io/skills/dictionary/model) already knows. [Parametric knowledge](https://michalkow.github.io/skills/dictionary/parametric-knowledge) is treated as untrusted: before it teaches, it goes and finds high-trust resources, records them in `RESOURCES.md`, and cites them inside every lesson. The other structural fact is that it is [stateful](https://michalkow.github.io/skills/dictionary/stateful) — the mission, the resources, the lessons and the record of what you have learned all live in the directory as files, so the next session picks up from those files rather than from whatever is left of the last conversation.
 
 ## When to reach for it
 
-You invoke this by typing `/teach` — the [agent](https://michalkow.github.io/dictionary-of-ai-coding/agent) won't reach for it on its own.
+You invoke this by typing `/teach` — the [agent](https://michalkow.github.io/skills/dictionary/agent) won't reach for it on its own.
 
 Reach for it when the learning is the project: a language, a framework, a codebase you have just joined, yoga, shaders, a certification. It is not the tool for one explanation in passing.
 
@@ -16,8 +16,8 @@ Reach for it when the learning is the project: a language, a framework, a codeba
 | One idea explained inside the session you are already in | Just ask, in that session |
 | The agent's last message re-pitched because it didn't land | [wait-what](https://michalkow.github.io/skills/wait-what) |
 | To sharpen thinking you already have, rather than acquire new material | [grill-me](https://michalkow.github.io/skills/grill-me) |
-| A background agent to read [primary sources](https://michalkow.github.io/dictionary-of-ai-coding/primary-source) and leave you a cited document | [research](https://michalkow.github.io/skills/research) |
-| To learn something that came up mid-grilling, without derailing the [grilling](https://michalkow.github.io/dictionary-of-ai-coding/grilling) | [handoff](https://michalkow.github.io/skills/handoff) out to a teaching workspace, then `teach` there |
+| A background agent to read [primary sources](https://michalkow.github.io/skills/dictionary/primary-source) and leave you a cited document | [research](https://michalkow.github.io/skills/research) |
+| To learn something that came up mid-grilling, without derailing the [grilling](https://michalkow.github.io/skills/dictionary/grilling) | [handoff](https://michalkow.github.io/skills/handoff) out to a teaching workspace, then `teach` there |
 
 ## Prerequisites
 
@@ -77,7 +77,7 @@ No to the first, and not reliably to the second. Spacing and interleaving are pr
 No, and the non-coding use is the larger part of the record: Korean, Japanese formal register, piano, guitar, board game design, OpenSCAD, film plots, Azure and CCNA certifications, university exams, and children of eight and ten getting printable books on escape rooms and fire salamanders. Nothing in the skill is programming-specific — mission, resources, zone of proximal development and drill work the same way in any domain. Within code, the strongest reported use is not learning a language from scratch but getting oriented in an unfamiliar codebase or a new team's stack.
 
 **Which model should I run it with?**
-There is no canonical answer, and the reported differences are large. Higher [reasoning effort](https://michalkow.github.io/dictionary-of-ai-coding/effort) has been reported to produce noticeably better lessons than the medium setting. One user ran the same skill through Copilot CLI with Codex and got a single 30-line HTML card where Claude Code produced a full lesson. It runs unmodified in Claude Cowork, subject to whether your organisation allows skills to be added there. If the lessons come out thin, change model, [harness](https://michalkow.github.io/dictionary-of-ai-coding/harness) or effort before rewriting your prompt.
+There is no canonical answer, and the reported differences are large. Higher [reasoning effort](https://michalkow.github.io/skills/dictionary/effort) has been reported to produce noticeably better lessons than the medium setting. One user ran the same skill through Copilot CLI with Codex and got a single 30-line HTML card where Claude Code produced a full lesson. It runs unmodified in Claude Cowork, subject to whether your organisation allows skills to be added there. If the lessons come out thin, change model, [harness](https://michalkow.github.io/skills/dictionary/harness) or effort before rewriting your prompt.
 
 ## It's working if
 
