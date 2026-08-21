@@ -1,5 +1,6 @@
 site_name: michalkow-skills
 site_description: Agent skills for real engineering — not vibe coding.
+site_url: https://michalkow.github.io/skills/
 repo_url: https://github.com/michalkow/skills
 docs_dir: docs
 
