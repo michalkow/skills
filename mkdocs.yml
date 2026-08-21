@@ -1,0 +1,39 @@
+site_name: michalkow-skills
+site_description: Agent skills for real engineering — not vibe coding.
+repo_url: https://github.com/michalkow/skills
+docs_dir: docs
+
+nav:
+  - Home: index.md
+  - Engineering:
+      - User-invoked:
+          - ask-michal: ask-michal.md
+          - grill-with-docs: grill-with-docs.md
+          - triage: triage.md
+          - improve-codebase-architecture: improve-codebase-architecture.md
+          - setup-michalkow-skills: setup-michalkow-skills.md
+          - to-spec: to-spec.md
+          - to-tickets: to-tickets.md
+          - implement: implement.md
+          - wayfinder: wayfinder.md
+      - Model-invoked:
+          - prototype: prototype.md
+          - diagnosing-bugs: diagnosing-bugs.md
+          - research: research.md
+          - tdd: tdd.md
+          - domain-modeling: domain-modeling.md
+          - codebase-design: codebase-design.md
+          - code-review: code-review.md
+          - resolving-merge-conflicts: resolving-merge-conflicts.md
+          - wizard: wizard.md
+  - Productivity:
+      - User-invoked:
+          - grill-me: grill-me.md
+          - handoff: handoff.md
+          - teach: teach.md
+          - to-questionnaire: to-questionnaire.md
+          - wait-what: wait-what.md
+      - Model-invoked:
+          - grilling: grilling.md
+          - writing-for-agents: writing-for-agents.md
+theme: readthedocs
