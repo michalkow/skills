@@ -1,0 +1,4 @@
+interface:
+  display_name: "Auto Spec"
+  short_description: "Turn a conversation into a spec"
+

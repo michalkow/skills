@@ -1,0 +1,5 @@
+interface:
+  display_name: "Grill to Feature"
+  short_description: "Grill a design and implement it"
+policy:
+  allow_implicit_invocation: false
