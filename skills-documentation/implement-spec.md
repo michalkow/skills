@@ -1,8 +1,8 @@
 ## What it does
 
-`implement-spec` takes a [spec](https://michalkow.github.io/skills/dictionary/spec) and its [tickets](https://michalkow.github.io/skills/dictionary/ticket) and lands the whole thing in one run. The orchestrating [agent](https://michalkow.github.io/skills/dictionary/agent) hands each ticket to an implementer [subagent](https://michalkow.github.io/skills/dictionary/subagent) working in its own git worktree, merges each finished branch into a single **integration branch**, runs [code-review](https://michalkow.github.io/skills/code-review) over the result, and resolves the tickets.
+`implement-spec` takes a [spec](https://michalkow.github.io/skills/dictionary/spec) and its [tickets](https://michalkow.github.io/skills/dictionary/ticket) and lands the whole thing in one run on a single **integration branch**. It reads the tickets as a **task graph**, not a list. Blocking edges decide what can start, so at any moment there is a **frontier** of tickets whose blockers have all landed.
 
-It reads the tickets as a **task graph**, not a list. Blocking edges decide what can start, so at any moment there is a **frontier** of tickets whose blockers have all landed, and every ticket on the frontier runs at once. That is the difference from working the tickets one by one: the graph's shape, not its order on the tracker, sets the pace.
+How the frontier is worked is a checkout branch. With worktrees, each ticket is an implementer [subagent](https://michalkow.github.io/skills/dictionary/subagent) and every ready ticket runs at once. On a single-checkout Cloud Agent, this [agent](https://michalkow.github.io/skills/dictionary/agent) works the frontier sequentially on the integration branch. The graph's shape, not its order on the tracker, still sets the pace. Either way the run closes with [code-review](https://michalkow.github.io/skills/code-review) and the tickets resolved the tracker's way.
 
 ## When to reach for it
 
@@ -19,25 +19,29 @@ You invoke this by typing `/implement-spec` — the agent won't reach for it on 
 
 - **An issue tracker.** The skill reads the tickets from, and resolves them on, the tracker [setup-michalkow-skills](https://michalkow.github.io/skills/setup-michalkow-skills) configured. If none has been configured, it stops and tells you to run that first rather than guessing.
 - **Tickets with blocking edges**, as [to-tickets](https://michalkow.github.io/skills/to-tickets) writes them. Without edges the graph is flat and every ticket starts at once.
-- **A [harness](https://michalkow.github.io/skills/dictionary/harness) that runs subagents in the background and gives each one a git worktree.** The concurrency is the point; a harness that runs subagents one at a time gets a slower `implement`.
 
 ## The integration branch
 
-Everything lands on one branch. Each implementer:
+Everything lands on one branch. How the **frontier** is worked depends on the checkout:
 
-1. confirms its worktree is based on the integration branch before it starts,
-2. builds its ticket with [tdd](https://michalkow.github.io/skills/tdd), red-green one slice at a time,
-3. merges the integration branch tip into its own branch before reporting done, so landing it is a fast-forward.
+| Checkout | How tickets land |
+| --- | --- |
+| Single checkout (a Cloud Agent, or a [harness](https://michalkow.github.io/skills/dictionary/harness) that cannot give a subagent a worktree) | Sequentially on the integration branch, this agent, each ticket built with [tdd](https://michalkow.github.io/skills/tdd) |
+| Worktrees | One implementer subagent per ticket, each in its own worktree, merged onto the integration branch as a fast-forward |
 
-Whether a pull request exists at all is the tracker's call. If your tracker closes work through PRs, or you ask for one, a draft PR opens after the first merge and is marked ready at the end. Otherwise the run stops on the integration branch with every ticket resolved the way your tracker closes work, which works fully offline against a local markdown tracker.
+Whether a pull request exists at all is the tracker's call. If your tracker closes work through PRs, or you ask for one, a draft PR opens after the first ticket lands and is marked ready at the end. Otherwise the run stops on the integration branch with every ticket resolved the way your tracker closes work, which works fully offline against a local markdown tracker.
 
-Implementers talk to the orchestrator through [context pointers](https://michalkow.github.io/skills/dictionary/context-pointer) (the spec, the ticket, shared exploration notes, earlier commits) rather than pasted summaries, which keeps each subagent's prompt small and the orchestrator's window free for the graph.
+On the worktree branch, implementers talk to the orchestrator through [context pointers](https://michalkow.github.io/skills/dictionary/context-pointer) (the spec, the ticket, shared exploration notes, earlier commits) rather than pasted summaries, which keeps each subagent's prompt small and the orchestrator's window free for the graph.
 
 ## Common questions
 
 **How is this different from running `/implement` on each ticket myself?**
 
 This is the question the skill exists to answer. Before it shipped, people kept building their own versions, and one user described the itch exactly: they wanted "subagents implement the tickets" instead of having "to individually create new session and tell them to implement a ticket one by one, when a spec may contain over 5 tickets." With `implement` you are the dispatcher: one [session](https://michalkow.github.io/skills/dictionary/session) per ticket, clearing in between, and keeping track yourself of which tickets are unblocked. `implement-spec` hands that job to one orchestrating session. The price is that you no longer read each ticket's work as it lands; you review the integration branch at the end. To start a run, clear the context and type `/implement-spec` with a pointer to the spec (an issue number or a file path). For a small change with no real graph, skip it and use `implement` directly.
+
+**I launched this on a Cloud Agent and every ticket landed in one agent, with no worktrees.**
+
+That is the single-checkout branch. A Cloud Agent has one working tree, so the skill works the **frontier** sequentially on the integration branch rather than dispatching a worktree per ticket. The spec still lands and the tickets still close the tracker's way; only one ticket runs at a time.
 
 **Does it need GitHub? I want it to stop at the branch.**
 
@@ -53,7 +57,7 @@ Review is done when the two-axis report sits under `## Standards` and `## Spec` 
 
 **Does it drive tdd like implement does?**
 
-Yes. Each implementer builds its ticket with `tdd`. There is no step where seams get agreed interactively, as there is in an `implement` session, so name the seams in the spec or the tickets if you want them pinned.
+Yes. Each ticket is built with `tdd`. There is no step where seams get agreed interactively, as there is in an `implement` session, so name the seams in the spec or the tickets if you want them pinned.
 
 **Two implementers running in parallel collided on the same file, or picked different names for the same thing.**
 
@@ -73,16 +77,17 @@ A worktree holds only what git tracks. Tests that read gitignored fixtures, loca
 
 ## It's working if
 
-- Several implementers are running at once whenever the graph allows, not one after another.
+- On worktrees, several implementers are running at once whenever the graph allows.
+- On a single checkout, tickets land one after another on the integration branch, in frontier order.
 - A ticket starts as soon as its last blocker lands on the integration branch, not when the whole run ends.
 - Every ticket's trace shows `tdd` running, with a failing test before the code.
-- Merges into the integration branch are fast-forwards, not conflict resolutions.
+- On worktrees, merges into the integration branch are fast-forwards, not conflict resolutions.
 - The two-axis report appears under `## Standards` and `## Spec` before any fix subagent starts.
 - The run ends on one branch with every ticket resolved, and a PR only if your tracker wanted one.
 
 ## Where it fits
 
-`implement-spec` is the build step of the main chain, as the parallel alternative to running [implement](https://michalkow.github.io/skills/implement) once per ticket:
+`implement-spec` is the build step of the main chain, as the whole-graph alternative to running [implement](https://michalkow.github.io/skills/implement) once per ticket:
 
 ```txt
 grill-with-docs → to-spec → to-tickets → implement-spec → retro
