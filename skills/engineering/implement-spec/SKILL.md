@@ -33,10 +33,12 @@ Communication to and from subagents should be sparse. Communicate primarily thro
 
 6. If this changes the **frontier** of available tickets, kick off more **implementer subagents** to work on the new tickets. This allows for maximum concurrency.
 
-7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch. Fix all issues raised by the code review in a single **implementer subagent**.
+7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch. This step is done when the two-axis report sits under `## Standards` and `## Spec` in the user-visible transcript.
 
-8. Call the Skill tool with `review-bugbot` on the integration branch. Fix all issues raised by the bugbot review in a single **implementer subagent**.
+8. One **implementer subagent** then fixes every finding from that report.
 
-9. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
+9. Run Bugbot subagent on the integration branch. Fix all issues raised by the bugbot review in a single **implementer subagent**.
 
-10. Clean up all **implementer subagent** worktrees.
+10. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
+
+11. Clean up all **implementer subagent** worktrees.
