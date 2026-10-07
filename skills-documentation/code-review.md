@@ -85,9 +85,10 @@ No. It diffs `<fixed-point>...HEAD`, three-dot, which is measured from the merge
 
 ## Where it fits
 
-`code-review` is the review step at the tail of the build chain — `grill-with-docs → to-spec → to-tickets → implement → code-review` — and also stands alone on any branch or PR you point it at.
+`code-review` is the review step near the tail of the build chain — `grill-with-docs → to-spec → to-tickets → implement → code-review → retro` — and also stands alone on any branch or PR you point it at.
 
 - [implement](https://michalkow.github.io/skills/implement) is the closest neighbour: it drives the build and calls this skill as its own closing review before committing. [implement-spec](https://michalkow.github.io/skills/implement-spec) does the same once, over the whole integration branch.
+- [retro](https://michalkow.github.io/skills/retro) comes after it and tunes it. When a session shows the review missing a class of mistake, `retro` proposes the check or the `CODING_STANDARDS.md` rule the Standards axis then reads.
 - [to-spec](https://michalkow.github.io/skills/to-spec) and [to-tickets](https://michalkow.github.io/skills/to-tickets) produce the document the Spec axis checks against; a vague spec makes that axis vague.
 - [improve-codebase-architecture](https://michalkow.github.io/skills/improve-codebase-architecture) is the whole-codebase counterpart — this skill only ever looks at one diff.
 

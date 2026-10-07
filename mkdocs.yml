@@ -18,6 +18,7 @@ nav:
           - implement: implement.md
           - implement-spec: implement-spec.md
           - wayfinder: wayfinder.md
+          - retro: retro.md
       - Model-invoked:
           - prototype: prototype.md
           - diagnosing-bugs: diagnosing-bugs.md

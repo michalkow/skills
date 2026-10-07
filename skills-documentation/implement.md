@@ -84,10 +84,10 @@ Probably the ticket is too big rather than the skill being misused. A run does c
 
 ## Where it fits
 
-`implement` is the build step of the main chain, second from the end:
+`implement` is the build step of the main chain:
 
 ```txt
-grill-with-docs → to-spec → to-tickets → implement → code-review
+grill-with-docs → to-spec → to-tickets → implement → code-review → retro
 ```
 
 Its neighbours are [to-tickets](https://michalkow.github.io/skills/to-tickets), which produces the tickets it consumes and declares the blocking edges that decide their order; [tdd](https://michalkow.github.io/skills/tdd), which it drives internally at each seam; and [code-review](https://michalkow.github.io/skills/code-review), which it runs before committing. It sits downstream of the planning skills and trusts them. It does not re-validate the shape of what it was handed, so a badly-structured map or a horizontally-layered ticket gets built as written.

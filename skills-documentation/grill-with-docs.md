@@ -76,7 +76,7 @@ Nobody is happy with the name. There is an open suggestion to rename it `grill-d
 `grill-with-docs` is the head of the main build chain:
 
 ```txt
-grill-with-docs → to-spec → to-tickets → implement → code-review
+grill-with-docs → to-spec → to-tickets → implement → code-review → retro
 ```
 
 It comes before anything is written down as a spec — it produces the shared understanding and settled vocabulary that [to-spec](https://michalkow.github.io/skills/to-spec) then synthesises without interviewing you again. Its close neighbours are [grill-me](https://michalkow.github.io/skills/grill-me), the same interview with no repo and no files, and [domain-modeling](https://michalkow.github.io/skills/domain-modeling), the glossary-and-ADR discipline it drives; both sit on the [grilling](https://michalkow.github.io/skills/grilling) primitive. Upstream of it, [wayfinder](https://michalkow.github.io/skills/wayfinder) charts efforts too large for one session and can hand parts of the map back down to it. When you're unsure which skill or flow fits, [ask-michal](https://michalkow.github.io/skills/ask-michal) routes you.
