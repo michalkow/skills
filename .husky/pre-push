@@ -1,0 +1,16 @@
+# Sync Cursor Cloud skills only when pushing main (skip branch deletes).
+run=
+while read local_ref local_sha remote_ref remote_sha
+do
+  case "$remote_ref" in
+    refs/heads/main)
+      case "$local_sha" in
+        *[!0]*) run=1 ;;
+      esac
+      ;;
+  esac
+done
+
+if [ -n "$run" ]; then
+  pnpm sync
+fi

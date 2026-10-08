@@ -9,9 +9,13 @@
   },
   "license": "MIT",
   "scripts": {
+    "prepare": "husky",
     "sync": "node scripts/sync-cursor-skills.mjs",
     "version": "changeset version && node scripts/sync-plugin-version.mjs",
     "check-plugin-version": "node scripts/sync-plugin-version.mjs --check"
   },
-  "packageManager": "pnpm@10.13.1"
+  "packageManager": "pnpm@10.13.1",
+  "devDependencies": {
+    "husky": "^9.1.7"
+  }
 }
