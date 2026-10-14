@@ -1,7 +1,6 @@
 ---
 name: grok-factory
 description: A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go, creates spec, tickets and implements.
-disable-model-invocation: true
 ---
 
 This tool uses multiple step flow to grill developer, spec it out, split into tickets and implement changes.
