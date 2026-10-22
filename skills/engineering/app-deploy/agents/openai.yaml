@@ -1,0 +1,5 @@
+interface:
+  display_name: "App Deploy"
+  short_description: "Deploy to Fly.io and verify it is healthy"
+policy:
+  allow_implicit_invocation: false
