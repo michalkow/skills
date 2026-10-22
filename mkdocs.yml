@@ -27,6 +27,7 @@ nav:
           - domain-modeling: domain-modeling.md
           - codebase-design: codebase-design.md
           - code-review: code-review.md
+          - pr: pr.md
           - resolving-merge-conflicts: resolving-merge-conflicts.md
           - wizard: wizard.md
   - Productivity:
