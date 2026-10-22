@@ -2,7 +2,7 @@
 
 `implement-spec` takes a [spec](https://michalkow.github.io/skills/dictionary/spec) and its [tickets](https://michalkow.github.io/skills/dictionary/ticket) and lands the whole thing in one run on a single **integration branch**. It reads the tickets as a **task graph**, not a list. Blocking edges decide what can start, so at any moment there is a **frontier** of tickets whose blockers have all landed.
 
-How the frontier is worked is a checkout branch. With worktrees, each ticket is an implementer [subagent](https://michalkow.github.io/skills/dictionary/subagent) and every ready ticket runs at once. On a single-checkout Cloud Agent, this [agent](https://michalkow.github.io/skills/dictionary/agent) works the frontier sequentially on the integration branch. The graph's shape, not its order on the tracker, still sets the pace. Either way the run closes with [code-review](https://michalkow.github.io/skills/code-review) and the tickets resolved the tracker's way.
+It always works a **single checkout**: this [agent](https://michalkow.github.io/skills/dictionary/agent) implements the frontier sequentially on the integration branch, one ticket at a time. The graph's shape still sets what can start; only one ticket is built at once. The run closes with [code-review](https://michalkow.github.io/skills/code-review) and the tickets resolved the tracker's way.
 
 ## When to reach for it
 
@@ -18,20 +18,15 @@ You invoke this by typing `/implement-spec` — the agent won't reach for it on 
 ## Prerequisites
 
 - **An issue tracker.** The skill reads the tickets from, and resolves them on, the tracker [setup-michalkow-skills](https://michalkow.github.io/skills/setup-michalkow-skills) configured. If none has been configured, it stops and tells you to run that first rather than guessing.
-- **Tickets with blocking edges**, as [to-tickets](https://michalkow.github.io/skills/to-tickets) writes them. Without edges the graph is flat and every ticket starts at once.
+- **Tickets with blocking edges**, as [to-tickets](https://michalkow.github.io/skills/to-tickets) writes them. Without edges the graph is flat and every ticket is unblocked from the start.
 
 ## The integration branch
 
-Everything lands on one branch. How the **frontier** is worked depends on the checkout:
-
-| Checkout | How tickets land |
-| --- | --- |
-| Single checkout (a Cloud Agent, or a [harness](https://michalkow.github.io/skills/dictionary/harness) that cannot give a subagent a worktree) | Sequentially on the integration branch, this agent, each ticket built with [tdd](https://michalkow.github.io/skills/tdd) |
-| Worktrees | One implementer subagent per ticket, each in its own worktree, merged onto the integration branch as a fast-forward |
+Everything lands on one branch. This agent works the **frontier** sequentially on a **single checkout**, each ticket built with [tdd](https://michalkow.github.io/skills/tdd). When a ticket lands, the next unblocked ticket starts.
 
 Whether a pull request exists at all is the tracker's call. If your tracker closes work through PRs, or you ask for one, a draft PR opens after the first ticket lands and is marked ready at the end. Otherwise the run stops on the integration branch with every ticket resolved the way your tracker closes work, which works fully offline against a local markdown tracker.
 
-On the worktree branch, implementers talk to the orchestrator through [context pointers](https://michalkow.github.io/skills/dictionary/context-pointer) (the spec, the ticket, shared exploration notes, earlier commits) rather than pasted summaries, which keeps each subagent's prompt small and the orchestrator's window free for the graph.
+Exploration and fix [subagents](https://michalkow.github.io/skills/dictionary/subagent) talk to the orchestrator through [context pointers](https://michalkow.github.io/skills/dictionary/context-pointer) (the spec, the ticket, shared exploration notes, earlier commits) rather than pasted summaries, which keeps each subagent's prompt small and the orchestrator's window free for the graph.
 
 ## Common questions
 
@@ -39,9 +34,9 @@ On the worktree branch, implementers talk to the orchestrator through [context p
 
 This is the question the skill exists to answer. Before it shipped, people kept building their own versions, and one user described the itch exactly: they wanted "subagents implement the tickets" instead of having "to individually create new session and tell them to implement a ticket one by one, when a spec may contain over 5 tickets." With `implement` you are the dispatcher: one [session](https://michalkow.github.io/skills/dictionary/session) per ticket, clearing in between, and keeping track yourself of which tickets are unblocked. `implement-spec` hands that job to one orchestrating session. The price is that you no longer read each ticket's work as it lands; you review the integration branch at the end. To start a run, clear the context and type `/implement-spec` with a pointer to the spec (an issue number or a file path). For a small change with no real graph, skip it and use `implement` directly.
 
-**I launched this on a Cloud Agent and every ticket landed in one agent, with no worktrees.**
+**Why doesn't it run tickets in parallel?**
 
-That is the single-checkout branch. A Cloud Agent has one working tree, so the skill works the **frontier** sequentially on the integration branch rather than dispatching a worktree per ticket. The spec still lands and the tickets still close the tracker's way; only one ticket runs at a time.
+It always uses a **single checkout**. Tickets on the **frontier** land one after another on the integration branch. The graph still decides which ticket can start; only one is built at a time.
 
 **Does it need GitHub? I want it to stop at the branch.**
 
@@ -59,29 +54,19 @@ Review is done when the two-axis report sits under `## Standards` and `## Spec` 
 
 Yes. Each ticket is built with `tdd`. There is no step where seams get agreed interactively, as there is in an `implement` session, so name the seams in the spec or the tickets if you want them pinned.
 
-**Two implementers running in parallel collided on the same file, or picked different names for the same thing.**
-
-Worktrees don't remove collisions; they postpone them to merge time. A blocking edge written from ticket text is a guess about which files each ticket will touch, and two tickets on "different parts of the codebase" still share a message catalogue, a config registry, or a type. Each implementer sees only its own ticket and the shared notes, never the other's work in progress, so one user's web and mobile tickets added the same string as `blockedSince` and `blockedOn`. When two frontier tickets touch one shared surface, either add a blocking edge between them so they run one after the other, or have the exploration notes fix the exact names each ticket adds.
-
 **Blocked tickets never start, even after their blocker has merged.**
 
 A known rough edge on GitHub. The tracker's blocked-by count only drops when a blocker *closes*, and tickets typically close when the PR merges, which is the end of the run. The tracker is the right source for the starting graph but a stale one mid-run. Tell the orchestrator to track which tickets have merged into the integration branch itself and compute the frontier from that.
 
 **Does this replace an AFK script?**
 
-No. `implement-spec` puts an agent in charge of orchestration inside one harness session, which needs no infrastructure and lets you watch and steer. For work that is truly [AFK](https://michalkow.github.io/skills/dictionary/afk), a deterministic loop ([Sandcastle](https://github.com/mattpocock/sandcastle), a shell script, a CI job) is faster, cheaper, and more reliable, because no part of the orchestration can wander off.
-
-**A ticket's key test was skipped inside its worktree, and it reported green.**
-
-A worktree holds only what git tracks. Tests that read gitignored fixtures, local databases, or credentials can skip themselves there silently. For a ticket whose verification depends on untracked material, tell the orchestrator to run it in the main checkout instead.
+No. `implement-spec` puts an agent in charge of orchestration inside one [harness](https://michalkow.github.io/skills/dictionary/harness) session, which needs no infrastructure and lets you watch and steer. For work that is truly [AFK](https://michalkow.github.io/skills/dictionary/afk), a deterministic loop ([Sandcastle](https://github.com/mattpocock/sandcastle), a shell script, a CI job) is faster, cheaper, and more reliable, because no part of the orchestration can wander off.
 
 ## It's working if
 
-- On worktrees, several implementers are running at once whenever the graph allows.
-- On a single checkout, tickets land one after another on the integration branch, in frontier order.
+- Tickets land one after another on the integration branch, in frontier order.
 - A ticket starts as soon as its last blocker lands on the integration branch, not when the whole run ends.
 - Every ticket's trace shows `tdd` running, with a failing test before the code.
-- On worktrees, merges into the integration branch are fast-forwards, not conflict resolutions.
 - The two-axis report appears under `## Standards` and `## Spec` before any fix subagent starts.
 - The run ends on one branch with every ticket resolved, and a PR only if your tracker wanted one.
 
