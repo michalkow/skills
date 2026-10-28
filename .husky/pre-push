@@ -1,4 +1,5 @@
-# Sync Cursor Cloud skills only when pushing main (skip branch deletes).
+# Sync skills to Claude Code, Codex, and Cursor Cloud when pushing main
+# (skip branch deletes).
 run=
 while read local_ref local_sha remote_ref remote_sha
 do
