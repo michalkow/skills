@@ -18,6 +18,7 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 - **[wayfinder](./wayfinder/SKILL.md)** — Plan a huge chunk of work — more than one agent session can hold — as a shared map of decision tickets on the issue tracker, resolved one at a time until the way to the destination is clear.
 - **[retro](./retro/SKILL.md)** — Suggest improvements to the coding agent's environment (navigation, automated checks, coding standards, steering files, tooling) after a session, most severe first.
 - **[app-deploy](./app-deploy/SKILL.md)** — Run `pnpm app:deploy` from the repo root to Fly.io, then confirm with `fly` that the app is healthy.
+- **[drizzle-migrate](./drizzle-migrate/SKILL.md)** — Generate and apply Drizzle migrations (`pnpm drizzle:generate` then `pnpm drizzle:migrate`), patching the SQL on failure unless the patch is hard to roll back.
 
 ## Model-invoked
 

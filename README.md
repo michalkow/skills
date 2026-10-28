@@ -154,6 +154,7 @@ Skills I use daily for code work.
 - **[wayfinder](./skills/engineering/wayfinder/SKILL.md)** — Plan a huge chunk of work, more than one agent session can hold, as a shared map of decision tickets on the issue tracker — resolve them one at a time until the way to the destination is clear.
 - **[retro](./skills/engineering/retro/SKILL.md)** — Suggest improvements to the coding agent's environment (navigation, automated checks, coding standards, steering files, tooling) after a session, most severe first.
 - **[app-deploy](./skills/engineering/app-deploy/SKILL.md)** — Run `pnpm app:deploy` from the repo root to Fly.io, then confirm with `fly` that the app is healthy.
+- **[drizzle-migrate](./skills/engineering/drizzle-migrate/SKILL.md)** — Generate and apply Drizzle migrations (`pnpm drizzle:generate` then `pnpm drizzle:migrate`), patching the SQL on failure unless the patch is hard to roll back.
 
 **Model-invoked**
 

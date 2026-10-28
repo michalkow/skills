@@ -1,0 +1,5 @@
+interface:
+  display_name: "Drizzle Migrate"
+  short_description: "Generate and apply Drizzle migrations"
+policy:
+  allow_implicit_invocation: false

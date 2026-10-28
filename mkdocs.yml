@@ -20,6 +20,7 @@ nav:
           - wayfinder: wayfinder.md
           - retro: retro.md
           - app-deploy: app-deploy.md
+          - drizzle-migrate: drizzle-migrate.md
       - Model-invoked:
           - prototype: prototype.md
           - diagnosing-bugs: diagnosing-bugs.md
