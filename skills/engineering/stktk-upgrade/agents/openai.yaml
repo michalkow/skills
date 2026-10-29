@@ -1,0 +1,5 @@
+interface:
+  display_name: "Stktk Upgrade"
+  short_description: "Publish then upgrade the stktk app"
+policy:
+  allow_implicit_invocation: false

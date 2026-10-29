@@ -28,7 +28,7 @@ The word the skill gives you to think with is **flow**: a path *through* the ski
 
 - **The main flow**, idea to ship. Grill, spec, tickets, implement (one ticket at a time, or the whole task graph with [implement-spec](https://michalkow.github.io/skills/implement-spec)), review, [pr](https://michalkow.github.io/skills/pr) body when it ships as a pull request, then [retro](https://michalkow.github.io/skills/retro), which feeds what the build taught back into the agent's environment. Two branches sit inside it: a prototype detour when a question needs runnable code to settle, and the spec-and-tickets split, which only earns its cost when the build spans more than one session.
 - **On-ramps**, for a situation that generates work and then merges onto the main flow: incoming bug reports, something broken, or an effort too foggy and too large to hold in one session.
-- **Standalones**, off every flow, reached for on their own terms — the prototype, the questionnaire, the merge conflict you are already sitting in, the Fly deploy, the Drizzle migrate.
+- **Standalones**, off every flow, reached for on their own terms — the prototype, the questionnaire, the merge conflict you are already sitting in, the Fly deploy, the Drizzle migrate, the stktk upgrade.
 - **A vocabulary layer underneath**, the two references the other skills pull in when the words rather than the process are the problem.
 
 ## The phase boundary
