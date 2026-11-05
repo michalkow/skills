@@ -30,3 +30,5 @@ Keep Node 14.18.2 and whatever `mac.sh` exported in the **same shell** for every
 
    - **Upgraded** — node version, whether a commit landed (and its SHA), publish succeeded, upgrade succeeded.
    - **Stopped** — which step failed, and the output.
+
+8. Run `npm config set registry https://registry.npmjs.org/`
