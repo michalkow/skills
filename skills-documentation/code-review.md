@@ -11,6 +11,7 @@ Type `/code-review`, or the agent reaches for it automatically when you ask to r
 | Your situation | Reach for |
 | --- | --- |
 | A diff exists and you want to know if it is built right *and* is the right thing | `code-review` |
+| You want three flagship models from different providers on the same work | [council](https://michalkow.github.io/skills/council) |
 | You want bugs hunted in the diff — null paths, races, off-by-one | Claude Code's own built-in review, not this one (see the name clash below) |
 | Nothing is written yet and you want it written test-first | [tdd](https://michalkow.github.io/skills/tdd) |
 | A whole spec needs building, review included | [implement](https://michalkow.github.io/skills/implement), which calls this skill itself |
@@ -91,5 +92,6 @@ No. It diffs `<fixed-point>...HEAD`, three-dot, which is measured from the merge
 - [retro](https://michalkow.github.io/skills/retro) comes after it and tunes it. When a session shows the review missing a class of mistake, `retro` proposes the check or the `CODING_STANDARDS.md` rule the Standards axis then reads.
 - [to-spec](https://michalkow.github.io/skills/to-spec) and [to-tickets](https://michalkow.github.io/skills/to-tickets) produce the document the Spec axis checks against; a vague spec makes that axis vague.
 - [improve-codebase-architecture](https://michalkow.github.io/skills/improve-codebase-architecture) is the whole-codebase counterpart — this skill only ever looks at one diff.
+- [council](https://michalkow.github.io/skills/council) is the heavier optional pass: three providers, scores, rounds until they agree. This skill stays the default close-out.
 
 [ask-michal](https://michalkow.github.io/skills/ask-michal) routes across the whole set when you are unsure which skill the situation wants.

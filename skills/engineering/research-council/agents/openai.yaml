@@ -1,0 +1,5 @@
+interface:
+  display_name: "Research Council"
+  short_description: "Three-model research, one synthesised docs file"
+policy:
+  allow_implicit_invocation: false

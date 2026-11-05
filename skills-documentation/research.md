@@ -13,6 +13,7 @@ Reach for it when the next step is *finding something out* from outside the work
 | What you need | Reach for |
 | --- | --- |
 | An external fact a decision is waiting on | `research` |
+| Three models searching the same topic, then one synthesis in `docs/` | [research-council](https://michalkow.github.io/skills/research-council) |
 | A decision made *with* you, by interview | [grilling](https://michalkow.github.io/skills/grilling) |
 | A durable architecture decision, written into `GLOSSARY.md` and ADRs | [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs) |
 | To find out whether an approach works in your codebase | [prototype](https://michalkow.github.io/skills/prototype) |
@@ -70,4 +71,4 @@ No, it now fires them for you. In the unreleased changes since v1.1, a charting 
 
 ## Where it fits
 
-A reach-for-it-anytime standalone that feeds the thinking skills rather than sitting in the build chain. Its file is something to take *into* the flow: [grilling](https://michalkow.github.io/skills/grilling) and [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs) ask sharper questions when the facts are already on the table, and [to-spec](https://michalkow.github.io/skills/to-spec) can synthesise against it. [wayfinder](https://michalkow.github.io/skills/wayfinder) is the one skill that invokes it directly, resolving each research ticket on its map with a `/research` subagent. For the whole map, see [ask-michal](https://michalkow.github.io/skills/ask-michal).
+A reach-for-it-anytime standalone that feeds the thinking skills rather than sitting in the build chain. Its file is something to take *into* the flow: [grilling](https://michalkow.github.io/skills/grilling) and [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs) ask sharper questions when the facts are already on the table, and [to-spec](https://michalkow.github.io/skills/to-spec) can synthesise against it. [wayfinder](https://michalkow.github.io/skills/wayfinder) is the one skill that invokes it directly, resolving each research ticket on its map with a `/research` subagent. [research-council](https://michalkow.github.io/skills/research-council) is the heavier optional pass: three models, web search each, one synthesis in `docs/`. For the whole map, see [ask-michal](https://michalkow.github.io/skills/ask-michal).

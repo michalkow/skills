@@ -22,6 +22,8 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 - **[stktk-upgrade](./stktk-upgrade/SKILL.md)** — Switch to Node 14.18.2, source `bin/mac.sh`, commit any uncommitted work, `npm run publish`, then source `bin/upgrade.sh`.
 - **[create-verification-skill](./create-verification-skill/SKILL.md)** — Generate a project-local verification skill that launches the app, drives a feature the way a user would, and captures evidence.
 - **[maintain-verification-skill](./maintain-verification-skill/SKILL.md)** — Keep a project's verification skill and feature map honest as the app changes: source coverage, a live pass, at most one PR of proven corrections.
+- **[council](./council/SKILL.md)** — Three flagship models from three providers review the work, iterating until they agree — without letting scope creep.
+- **[research-council](./research-council/SKILL.md)** — Three models independently research a topic via web search; the coordinator synthesises one cited Markdown file into `docs/`.
 
 ## Model-invoked
 

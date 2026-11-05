@@ -24,6 +24,8 @@ nav:
           - stktk-upgrade: stktk-upgrade.md
           - create-verification-skill: create-verification-skill.md
           - maintain-verification-skill: maintain-verification-skill.md
+          - council: council.md
+          - research-council: research-council.md
       - Model-invoked:
           - prototype: prototype.md
           - diagnosing-bugs: diagnosing-bugs.md

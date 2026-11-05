@@ -12,7 +12,8 @@ Type `/pr`, or the agent reaches for it automatically whenever it is writing a P
 | --- | --- |
 | A branch is ready and needs a body a reviewer can scan | `pr` |
 | The code is written but nobody has reviewed it yet | [code-review](https://michalkow.github.io/skills/code-review) first, then `pr` |
-| The PR is open and review comments are coming back | Nothing in this set yet; `pr` only writes the body |
+| You want three providers to review the work, with scores on the PR | [council](https://michalkow.github.io/skills/council), which writes a score table into the description; `pr` still owns the rest of the body |
+| The PR is open and review comments are coming back | [council](https://michalkow.github.io/skills/council) if you want a three-provider pass after those comments are addressed; `pr` only writes the body |
 
 ## The template
 
