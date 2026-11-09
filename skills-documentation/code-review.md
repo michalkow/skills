@@ -14,7 +14,7 @@ Type `/code-review`, or the agent reaches for it automatically when you ask to r
 | You want three flagship models from different providers on the same work | [council](https://michalkow.github.io/skills/council) |
 | You want bugs hunted in the diff — null paths, races, off-by-one | Claude Code's own built-in review, not this one (see the name clash below) |
 | Nothing is written yet and you want it written test-first | [tdd](https://michalkow.github.io/skills/tdd) |
-| A whole spec needs building, review included | [implement](https://michalkow.github.io/skills/implement), which calls this skill itself |
+| A whole spec needs building, review included | [implement](https://michalkow.github.io/skills/implement) or [implement-pr](https://michalkow.github.io/skills/implement-pr), which call this skill themselves |
 | The whole codebase has drifted, not one diff | [improve-codebase-architecture](https://michalkow.github.io/skills/improve-codebase-architecture) |
 | Something is broken and you do not know why | [diagnosing-bugs](https://michalkow.github.io/skills/diagnosing-bugs) |
 
@@ -88,7 +88,7 @@ No. It diffs `<fixed-point>...HEAD`, three-dot, which is measured from the merge
 
 `code-review` is the review step near the tail of the build chain — `grill-with-docs → to-spec → to-tickets → implement → code-review → retro` — and also stands alone on any branch or PR you point it at.
 
-- [implement](https://michalkow.github.io/skills/implement) is the closest neighbour: it drives the build and calls this skill as its own closing review before committing. [implement-spec](https://michalkow.github.io/skills/implement-spec) does the same once, over the whole integration branch.
+- [implement](https://michalkow.github.io/skills/implement) is the closest neighbour: it drives the build and calls this skill as its own closing review before committing. [implement-pr](https://michalkow.github.io/skills/implement-pr) does the same, then opens a pull request. [implement-spec](https://michalkow.github.io/skills/implement-spec) does the same once, over the whole integration branch.
 - [retro](https://michalkow.github.io/skills/retro) comes after it and tunes it. When a session shows the review missing a class of mistake, `retro` proposes the check or the `CODING_STANDARDS.md` rule the Standards axis then reads.
 - [to-spec](https://michalkow.github.io/skills/to-spec) and [to-tickets](https://michalkow.github.io/skills/to-tickets) produce the document the Spec axis checks against; a vague spec makes that axis vague.
 - [improve-codebase-architecture](https://michalkow.github.io/skills/improve-codebase-architecture) is the whole-codebase counterpart — this skill only ever looks at one diff.

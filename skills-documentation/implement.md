@@ -13,6 +13,7 @@ Where the work currently lives decides whether this is the right skill:
 | The work is… | Reach for |
 | --- | --- |
 | A ticket on the tracker | `/implement #42`, one ticket per [session](https://michalkow.github.io/skills/dictionary/session), [clearing](https://michalkow.github.io/skills/dictionary/clearing) context between tickets |
+| The same ticket, and it should go up as a PR | [implement-pr](https://michalkow.github.io/skills/implement-pr) |
 | A spec, not yet split up, and the build spans sessions | [to-tickets](https://michalkow.github.io/skills/to-tickets) first, then `/implement` per ticket |
 | A spec, and the build is small | `/implement` directly against the spec |
 | Only in the conversation you just had, and it's still small | `/implement` right there, in the same window |
@@ -58,7 +59,7 @@ Not with `/implement`: one invocation, one ticket. For a whole spec in one run, 
 
 **Can it open a pull request instead of committing?**
 
-Not built in. It commits straight to the current branch, which several people find too eager: the code lands before they have had a chance to verify it works. There is no configuration flag and no PR mode. People override it in the invocation ("commit to a branch and open a PR") or by editing their local copy of the skill.
+Not this skill. It commits straight to the current branch. For the same build plus opening a PR, use [implement-pr](https://michalkow.github.io/skills/implement-pr).
 
 **`code-review` says it cannot see my changes.**
 
@@ -90,7 +91,7 @@ Probably the ticket is too big rather than the skill being misused. A run does c
 grill-with-docs → to-spec → to-tickets → implement → code-review → retro
 ```
 
-Its neighbours are [to-tickets](https://michalkow.github.io/skills/to-tickets), which produces the tickets it consumes and declares the blocking edges that decide their order; [tdd](https://michalkow.github.io/skills/tdd), which it drives internally at each seam; and [code-review](https://michalkow.github.io/skills/code-review), which it runs before committing. It sits downstream of the planning skills and trusts them. It does not re-validate the shape of what it was handed, so a badly-structured map or a horizontally-layered ticket gets built as written.
+Its neighbours are [to-tickets](https://michalkow.github.io/skills/to-tickets), which produces the tickets it consumes and declares the blocking edges that decide their order; [tdd](https://michalkow.github.io/skills/tdd), which it drives internally at each seam; [code-review](https://michalkow.github.io/skills/code-review), which it runs before committing; and [implement-pr](https://michalkow.github.io/skills/implement-pr), the same build that then opens a pull request. It sits downstream of the planning skills and trusts them. It does not re-validate the shape of what it was handed, so a badly-structured map or a horizontally-layered ticket gets built as written.
 
 That trust is why [wayfinder](https://michalkow.github.io/skills/wayfinder) merges onto the chain at [to-spec](https://michalkow.github.io/skills/to-spec) rather than looping its map straight into `implement`. Go straight to `implement` from a map only when the effort turned out genuinely small.
 

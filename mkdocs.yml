@@ -16,6 +16,7 @@ nav:
           - to-spec: to-spec.md
           - to-tickets: to-tickets.md
           - implement: implement.md
+          - implement-pr: implement-pr.md
           - implement-spec: implement-spec.md
           - wayfinder: wayfinder.md
           - retro: retro.md

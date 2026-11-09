@@ -12,6 +12,7 @@ You invoke this by typing `/implement-spec` — the agent won't reach for it on 
 | --- | --- |
 | A spec, split into tickets with blocking edges, that you want landed in one run | `/implement-spec` |
 | One ticket at a time, in your own [context window](https://michalkow.github.io/skills/dictionary/context-window), [clearing](https://michalkow.github.io/skills/dictionary/clearing) between tickets | [implement](https://michalkow.github.io/skills/implement) |
+| One ticket at a time, opened as a pull request | [implement-pr](https://michalkow.github.io/skills/implement-pr) |
 | A spec that isn't split into tickets yet | [to-tickets](https://michalkow.github.io/skills/to-tickets) first |
 | A small piece of work with no real graph to it | [implement](https://michalkow.github.io/skills/implement) directly |
 

@@ -11,6 +11,7 @@ Type `/pr`, or the agent reaches for it automatically whenever it is writing a P
 | Your situation | Reach for |
 | --- | --- |
 | A branch is ready and needs a body a reviewer can scan | `pr` |
+| The work is not built yet and should go up as a PR | [implement-pr](https://michalkow.github.io/skills/implement-pr) |
 | The code is written but nobody has reviewed it yet | [code-review](https://michalkow.github.io/skills/code-review) first, then `pr` |
 | You want three providers to review the work, with scores on the PR | [council](https://michalkow.github.io/skills/council), which writes a score table into the description; `pr` still owns the rest of the body |
 | The PR is open and review comments are coming back | [council](https://michalkow.github.io/skills/council) if you want a three-provider pass after those comments are addressed; `pr` only writes the body |
@@ -37,7 +38,7 @@ Not blindly, and that is the point of stating it. The agent that wrote the chang
 
 **Does it open the PR for me?**
 
-No. `pr` covers only the body. [implement](https://michalkow.github.io/skills/implement) ends by committing to the current branch. [implement-spec](https://michalkow.github.io/skills/implement-spec) is the exception: it opens a draft PR when your issue tracker closes work through PRs or when you ask for one. Because `pr` is model-invoked, the agent uses this shape for the body whenever you ask it to open a PR.
+No. `pr` covers only the body. [implement](https://michalkow.github.io/skills/implement) ends by committing to the current branch. [implement-pr](https://michalkow.github.io/skills/implement-pr) is the build that then opens a PR, calling this skill for the body. [implement-spec](https://michalkow.github.io/skills/implement-spec) also opens a draft PR when your issue tracker closes work through PRs or when you ask for one. Because `pr` is model-invoked, the agent uses this shape for the body whenever it writes one.
 
 **Won't it just produce another wall of text and diagrams?**
 
@@ -76,9 +77,9 @@ Not by itself. One user's approach is a standing instruction in the repo's agent
 
 ## Where it fits
 
-`pr` comes between review and retro when the build ships as a pull request: `to-spec → to-tickets → implement → code-review → pr → retro`. It is model-invoked, so it also fires on its own any time the agent writes a PR body outside that chain.
+`pr` comes between review and retro when the build ships as a pull request: `to-spec → to-tickets → implement-pr → retro`. It is model-invoked, so it also fires on its own any time the agent writes a PR body outside that chain.
 
 - [code-review](https://michalkow.github.io/skills/code-review) runs before it, because a PR body should describe a diff that has already been reviewed.
-- [implement](https://michalkow.github.io/skills/implement) produces the commits the body describes.
+- [implement-pr](https://michalkow.github.io/skills/implement-pr) is the build that opens the PR and calls this skill for the body. [implement](https://michalkow.github.io/skills/implement) produces the same commits but stops there.
 
 [ask-michal](https://michalkow.github.io/skills/ask-michal) routes across the whole set when you are unsure which skill the situation wants.
