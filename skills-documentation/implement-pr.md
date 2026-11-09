@@ -11,6 +11,7 @@ You invoke this by typing `/implement-pr` — the [agent](https://michalkow.gith
 | The work is… | Reach for |
 | --- | --- |
 | A ticket (or a small spec) that should go up as a PR | `/implement-pr` |
+| A problem you can describe, and it should go up as a PR | [fix-pr](https://michalkow.github.io/skills/fix-pr) |
 | The same work, and a commit on the current branch is enough | [implement](https://michalkow.github.io/skills/implement) |
 | A whole spec, tickets with blocking edges, one integration branch | [implement-spec](https://michalkow.github.io/skills/implement-spec) |
 | The code is already committed, and you only need a body | [pr](https://michalkow.github.io/skills/pr) |
@@ -57,6 +58,6 @@ The run creates a branch first, then opens the PR from that branch. Prefer start
 grill-with-docs → to-spec → to-tickets → implement-pr → retro
 ```
 
-Its neighbours are [implement](https://michalkow.github.io/skills/implement), the same build that stops at the commit, and [pr](https://michalkow.github.io/skills/pr), the body format it uses when it opens. [implement-spec](https://michalkow.github.io/skills/implement-spec) is the whole-graph alternative; it may also open a PR, but only when the tracker closes work that way.
+Its neighbours are [implement](https://michalkow.github.io/skills/implement), the same build that stops at the commit; [fix-pr](https://michalkow.github.io/skills/fix-pr), the same close-out for a described problem rather than a ticket; and [pr](https://michalkow.github.io/skills/pr), the body format it uses when it opens. [implement-spec](https://michalkow.github.io/skills/implement-spec) is the whole-graph alternative; it may also open a PR, but only when the tracker closes work that way.
 
 [ask-michal](https://michalkow.github.io/skills/ask-michal) is the router over the whole set when you are not sure which flow you are in.

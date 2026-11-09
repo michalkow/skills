@@ -153,10 +153,11 @@ Skills I use daily for code work.
 - **[to-tickets](./skills/engineering/to-tickets/SKILL.md)** — Break any plan, spec, or conversation into a set of tracer-bullet tickets, each declaring its blocking edges — written as text in a local file, or as native blocking links on a real tracker.
 - **[implement](./skills/engineering/implement/SKILL.md)** — Build the work described by a spec or set of tickets, driving `/tdd` at pre-agreed seams and closing out with `/code-review` before committing.
 - **[implement-pr](./skills/engineering/implement-pr/SKILL.md)** — Same as `/implement`, then opens a pull request with a body shaped by `/pr`.
+- **[fix-pr](./skills/engineering/fix-pr/SKILL.md)** — Fix the problem the user described, then open a pull request with a body shaped by `/pr`.
 - **[implement-spec](./skills/engineering/implement-spec/SKILL.md)** — Implement a whole spec on one integration branch. Works the tickets as a task graph sequentially on a single checkout, then closes out with `/code-review`.
 - **[wayfinder](./skills/engineering/wayfinder/SKILL.md)** — Plan a huge chunk of work, more than one agent session can hold, as a shared map of decision tickets on the issue tracker — resolve them one at a time until the way to the destination is clear.
 - **[retro](./skills/engineering/retro/SKILL.md)** — Suggest improvements to the coding agent's environment (navigation, automated checks, coding standards, steering files, tooling) after a session, most severe first.
-- **[app-deploy](./skills/engineering/app-deploy/SKILL.md)** — Run `pnpm app:deploy` from the repo root to Fly.io, then confirm with `fly` that the app is healthy.
+- **[app-deploy](./skills/engineering/app-deploy/SKILL.md)** — Checkout and pull `main`, run `pnpm app:deploy` from the repo root to Fly.io, then confirm with `fly` that the app is healthy.
 - **[drizzle-migrate](./skills/engineering/drizzle-migrate/SKILL.md)** — Generate and apply Drizzle migrations (`pnpm drizzle:generate` then `pnpm drizzle:migrate`), patching the SQL on failure unless the patch is hard to roll back.
 - **[stktk-upgrade](./skills/engineering/stktk-upgrade/SKILL.md)** — Switch to Node 14.18.2, source `bin/mac.sh`, commit any uncommitted work, `npm run publish`, then source `bin/upgrade.sh`.
 - **[create-verification-skill](./skills/engineering/create-verification-skill/SKILL.md)** — Generate a project-local verification skill that launches the app, drives a feature the way a user would, and captures evidence.

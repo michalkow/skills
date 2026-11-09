@@ -12,6 +12,8 @@ Run typechecking regularly, single test files regularly, and the full test suite
 
 Once done, call the Skill tool with `code-review` to review the work.
 
+Fix every finding from that report.
+
 Commit your work to the current branch.
 
 Then create a pull request. If the current branch is the default branch, create a branch first. Call the Skill tool with `pr`.

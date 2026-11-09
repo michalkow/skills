@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fix PR"
+  short_description: "Fix the problem the user described, then open a pull request"
+policy:
+  allow_implicit_invocation: false

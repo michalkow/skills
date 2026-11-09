@@ -14,6 +14,7 @@ Where the work currently lives decides whether this is the right skill:
 | --- | --- |
 | A ticket on the tracker | `/implement #42`, one ticket per [session](https://michalkow.github.io/skills/dictionary/session), [clearing](https://michalkow.github.io/skills/dictionary/clearing) context between tickets |
 | The same ticket, and it should go up as a PR | [implement-pr](https://michalkow.github.io/skills/implement-pr) |
+| A described problem that should go up as a PR | [fix-pr](https://michalkow.github.io/skills/fix-pr) |
 | A spec, not yet split up, and the build spans sessions | [to-tickets](https://michalkow.github.io/skills/to-tickets) first, then `/implement` per ticket |
 | A spec, and the build is small | `/implement` directly against the spec |
 | Only in the conversation you just had, and it's still small | `/implement` right there, in the same window |

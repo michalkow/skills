@@ -13,6 +13,7 @@ Reach for it on the hard ones: a bug that resists a first look, an intermittent 
 | Your situation | Where to go |
 | --- | --- |
 | A specific defect you can describe as a symptom | This skill |
+| The problem is already described and should go up as a PR | [fix-pr](https://michalkow.github.io/skills/fix-pr) |
 | A slow endpoint or a timing regression with a known before-and-after | This skill — it has a performance branch (measure a baseline, then bisect) |
 | "Where are the bottlenecks in this codebase?" — no specific symptom | Not this skill. It diagnoses one known failure, it does not audit |
 | A raw bug report from someone else, not yet confirmed or written up | [triage](https://michalkow.github.io/skills/triage) first |
@@ -89,6 +90,6 @@ Renamed to `/diagnosing-bugs` in v1.0.0. The old name no longer exists. Anything
 
 ## Where it fits
 
-`diagnosing-bugs` is a reach-for-it-anytime standalone. You drop into it when something is broken and drop out when the fix and its regression test are in; it holds no state and needs no prior setup. [ask-michal](https://michalkow.github.io/skills/ask-michal) routes "Something's broken" here.
+`diagnosing-bugs` is a reach-for-it-anytime standalone. You drop into it when something is broken and drop out when the fix and its regression test are in; it holds no state and needs no prior setup. [ask-michal](https://michalkow.github.io/skills/ask-michal) routes the hard "Something's broken" here, and the already-described case that should ship as a pull request to [fix-pr](https://michalkow.github.io/skills/fix-pr).
 
 Two neighbours matter. [retro](https://michalkow.github.io/skills/retro) comes after it: once the fix is in, run it in the same session to ask what would have prevented the bug, while the session has more information than it had at the start. `diagnosing-bugs` never invokes `retro` itself, because `retro` is user-invoked. [triage](https://michalkow.github.io/skills/triage) sits upstream of it for bugs that arrive as raw reports from other people, and does a shallower version of the same first two phases.
