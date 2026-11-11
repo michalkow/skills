@@ -36,4 +36,6 @@ Always **Single checkout**. Implement the **frontier** sequentially on the integ
 
 7. Run Bugbot subagent on the integration branch. Fix all issues raised by the bugbot review in a single **implementer subagent**.
 
-8. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.
+8. If this repo uses changeset, call the Skill tool with `changeset-add`.
+
+9. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch, then call skill tool with `pr`.

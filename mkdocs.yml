@@ -28,6 +28,7 @@ nav:
           - maintain-verification-skill: maintain-verification-skill.md
           - council: council.md
           - research-council: research-council.md
+          - changeset-add: changeset-add.md
       - Model-invoked:
           - prototype: prototype.md
           - diagnosing-bugs: diagnosing-bugs.md

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Changeset Add"
+  short_description: "Write one pending Changeset for this thread"
+policy:
+  allow_implicit_invocation: false

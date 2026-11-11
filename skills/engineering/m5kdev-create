@@ -1,0 +1,16 @@
+1. Ask user about app name if he didn't specify one 
+2. run pnpm dlx create-m5kdev@latest [appname]
+This is a starter repo including posts module
+1. set up github, repo envs and branches
+2. setup posthog project
+3. add signoz envs
+4. Sentry (migrate?)
+5. openrouter (if ai)
+6. neon
+7. backblaze (if files)
+8. fly setup
+9. fly secrets and deploy
+10. custom domain
+11. resend config
+12. first grill with docs
+13. remove starter stuff

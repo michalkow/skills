@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 Implement the work described by the user in the spec or tickets.
 
-Call the Skill tool with `tdd` where possible, at pre-agreed seams.
+Call the Skill tool with `tdd` where possible, at pre-agreed seams or most narrow ones if it was not specified.
 
 Run typechecking regularly, single test files regularly, and the full test suite once at the end.
 
@@ -17,3 +17,5 @@ Fix every finding from that report.
 Commit your work to the current branch.
 
 Then create a pull request. If the current branch is the default branch, create a branch first. Call the Skill tool with `pr`.
+
+If this repo uses changeset, call the Skill tool with `changeset-add`.

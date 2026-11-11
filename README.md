@@ -164,6 +164,7 @@ Skills I use daily for code work.
 - **[maintain-verification-skill](./skills/engineering/maintain-verification-skill/SKILL.md)** — Keep a project's verification skill and feature map honest as the app changes: source coverage, a live pass, at most one PR of proven corrections.
 - **[council](./skills/engineering/council/SKILL.md)** — Three flagship models from three providers review the work, iterating until they agree — without letting scope creep.
 - **[research-council](./skills/engineering/research-council/SKILL.md)** — Three models independently research a topic via web search; the coordinator synthesises one cited Markdown file into `docs/`.
+- **[changeset-add](./skills/engineering/changeset-add/SKILL.md)** — Write one pending Changeset for release-worthy behaviour in this thread (or a named git range). Default bump is patch; name minor or major to override. Leaves the file uncommitted and does not touch CHANGELOG.md.
 
 **Model-invoked**
 

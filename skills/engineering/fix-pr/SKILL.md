@@ -17,3 +17,5 @@ Fix every finding from that report.
 Commit your work to the current branch.
 
 Then create a pull request. If the current branch is the default branch, create a branch first. Call the Skill tool with `pr`.
+
+If this repo uses changeset, call the Skill tool with `changeset-add`.
