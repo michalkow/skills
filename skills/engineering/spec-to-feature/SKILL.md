@@ -4,10 +4,42 @@ description: Creates spec, tickets and implements.
 disable-model-invocation: true
 ---
 
-This tool uses multiple step flow to, spec out the current thread, split into tickets and implement changes.
+You have to create spec then tickets, from existing thread.
+
+The issue tracker should have been provided to you. If not, tell the user to run `/setup-michalkow-skills`.
+
+The goal is the entire spec implemented on a single **integration branch**, with every ticket resolved the way the issue tracker closes work.
+
+The tickets are not a list of steps. They are a **task graph** with blocking relationships between them. This means there is always a **frontier** of tickets which are ready to be grabbed.
+
+Communication to and from subagents should be sparse. Communicate primarily through **context pointers**: to the spec, tickets, research notes, and previous commits. Don't duplicate information already available via pointers.
+
+## Checkout
+
+Always **Single checkout**. Implement the **frontier** sequentially on the integration branch.
 
 ## Steps
 
-2. Call the Skill tool for "auto-spec".
-3. Call the Skill tool for "auto-tickes" with the spec created in the previous step.
-4. Call the Skill tool for "implement-spec" with the spec created in the 2nd step.
+1. Call the Skill tool for `auto-spec` to create spec in issue tracker.
+
+2. Call the Skill tool for `auto-tickes` with the spec created in the previous step, to create the tickets.
+
+3. Read the spec and tickets to understand the task graph.
+
+4. (optional) Use an **exploration subagent** to conduct any exploration required by the tickets - relevant codebase files or external documentation. Ensure the exploration subagent can save files - it should save its markdown notes in a directory outside the repo, accessible later in the run. This lets later work focus on implementation rather than exploration.
+
+5. Create the integration branch. If the issue tracker closes work through PRs, or the user asks for one, open a draft PR after the first ticket lands on the integration branch (a branch with no commits ahead of main can't open one), marked as closing the spec and tickets.
+
+6. Land every ticket on the integration branch. This step is done when every ticket has landed.
+
+   On the integration branch, implement each ticket on the **frontier** in sequence. For each ticket: call the Skill tool with `tdd`; commit on this branch. When a ticket lands, take the next unblocked ticket.
+
+7. Once all tickets are complete, call the Skill tool with `code-review` on the integration branch. This step is done when the two-axis report sits under `## Standards` and `## Spec` in the user-visible transcript.
+
+8. One **implementer subagent** then fixes every finding from that report.
+
+9. Run Bugbot subagent on the integration branch. Fix all issues raised by the bugbot review in a single **implementer subagent**.
+
+10. If this repo uses changeset, call the Skill tool with `changeset-add`.
+
+11. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch, then call skill tool with `pr`.
