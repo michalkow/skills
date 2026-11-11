@@ -10,10 +10,11 @@ You invoke this by typing `/grill-me` — the [agent](https://michalkow.github.i
 
 Reach for it as soon as you have an idea worth taking seriously — a feature, a product direction, a business call, a piece of writing — and long before you have worked out what it involves. Vagueness is not a reason to wait; it is the thing the session eats. If you can already specify the thing precisely, you don't need to grill it.
 
-Which of the three grilling skills you want depends on what is in front of you:
+Which interview you want depends on what is in front of you:
 
-- **Anything, anywhere** — `grill-me`. It needs no repo and writes no files, and the subject doesn't have to be code.
-- **A codebase to align against** — [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs). The same interview, but [stateful](https://michalkow.github.io/skills/dictionary/stateful): it reads your code and keeps what it learns in `GLOSSARY.md` and ADRs.
+- **Anything, anywhere, still fuzzy** — `grill-me`. It needs no repo and writes no files, and the subject doesn't have to be code.
+- **A codebase to align against, still fuzzy** — [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs). The same interview, but [stateful](https://michalkow.github.io/skills/dictionary/stateful): it reads your code and keeps what it learns in `GLOSSARY.md` and ADRs.
+- **The change is already clear** — [asking](https://michalkow.github.io/skills/asking) with no repo, [asking-with-docs](https://michalkow.github.io/skills/asking-with-docs) inside one. One round about the gaps, then stop.
 - **Too big for one session** — [wayfinder](https://michalkow.github.io/skills/wayfinder). It charts the effort as a map and runs grilling sessions inside it.
 
 Leave [plan mode](https://michalkow.github.io/skills/dictionary/agent-mode) off. Plan mode primes the agent to rush toward producing a plan, which is the opposite of staying in inquiry.

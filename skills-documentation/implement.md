@@ -18,7 +18,8 @@ Where the work currently lives decides whether this is the right skill:
 | A spec, not yet split up, and the build spans sessions | [to-tickets](https://michalkow.github.io/skills/to-tickets) first, then `/implement` per ticket |
 | A spec, and the build is small | `/implement` directly against the spec |
 | Only in the conversation you just had, and it's still small | `/implement` right there, in the same window |
-| Not written down anywhere yet | [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs), or [grill-me](https://michalkow.github.io/skills/grill-me) if there's no codebase |
+| Not written down anywhere yet, and the idea is still fuzzy | [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs), or [grill-me](https://michalkow.github.io/skills/grill-me) if there's no codebase |
+| Not written down anywhere yet, and you can already describe the change | [asking-with-docs](https://michalkow.github.io/skills/asking-with-docs), or [asking](https://michalkow.github.io/skills/asking) if there's no codebase |
 | One concrete behaviour you want test-first, with no spec | [tdd](https://michalkow.github.io/skills/tdd) directly |
 | Already built, and you want it checked | [code-review](https://michalkow.github.io/skills/code-review) directly |
 

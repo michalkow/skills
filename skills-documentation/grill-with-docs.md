@@ -12,8 +12,10 @@ Reach for it at the start of a change, in a repo, when the plan is still fuzzy a
 
 | What you have | Reach for |
 | --- | --- |
-| You aren't working in a working directory at all | [grill-me](https://michalkow.github.io/skills/grill-me) |
-| A repo, and a change you can settle in one session | `grill-with-docs` |
+| No working directory, and the idea is still fuzzy | [grill-me](https://michalkow.github.io/skills/grill-me) |
+| No working directory, and you can already describe the change | [asking](https://michalkow.github.io/skills/asking) |
+| A repo, and a change you can settle in one session, still fuzzy | `grill-with-docs` |
+| A repo, and a change you can already describe | [asking-with-docs](https://michalkow.github.io/skills/asking-with-docs) — check it against the docs, code, and ADRs, and ask only the gaps |
 | An effort too big to hold in one session — a greenfield build, a large feature | [wayfinder](https://michalkow.github.io/skills/wayfinder) |
 | A repo with no domain docs at all, and no particular feature in mind | `grill-with-docs`, aimed at the repo rather than a change |
 | A decision blocked on knowledge in someone else's head | [to-questionnaire](https://michalkow.github.io/skills/to-questionnaire) |

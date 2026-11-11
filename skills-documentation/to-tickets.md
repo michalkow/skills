@@ -13,7 +13,8 @@ You invoke this by typing `/to-tickets` — the [agent](https://michalkow.github
 | You have a spec issue and the build spans several sessions | `/to-tickets`, or `/to-tickets #<spec_issue>` |
 | The plan is only in the conversation, never written up | `/to-tickets` reads the thread directly — no spec needed |
 | The whole change fits in one context window | [implement](https://michalkow.github.io/skills/implement) — skip the tickets |
-| Nothing is decided yet | [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs), then [to-spec](https://michalkow.github.io/skills/to-spec) |
+| Nothing is decided yet, and the idea is still fuzzy | [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs), then [to-spec](https://michalkow.github.io/skills/to-spec) |
+| The change is already clear, and it has not been checked | [asking-with-docs](https://michalkow.github.io/skills/asking-with-docs), then [to-spec](https://michalkow.github.io/skills/to-spec) when the build spans sessions |
 | A [wayfinder](https://michalkow.github.io/skills/wayfinder) map has cleared | [to-spec](https://michalkow.github.io/skills/to-spec) first, to collapse the map, then `/to-tickets` |
 
 Tickets that `to-tickets` produced are agent-ready by construction. Don't run [triage](https://michalkow.github.io/skills/triage) over them — triage is for work that arrived from someone else.

@@ -51,7 +51,12 @@ This is just the same in the AI age. There is a communication gap between you an
 - [`/grill-me`](./skills/productivity/grill-me/SKILL.md) - for non-code uses
 - [`/grill-with-docs`](./skills/engineering/grill-with-docs/SKILL.md) - same as [`/grill-me`](./skills/productivity/grill-me/SKILL.md), but adds more goodies (see below)
 
-These are my most popular skills. They help you align with the agent before you get started, and think deeply about the change you're making. Use them _every_ time you want to make a change.
+When you already know the change and only want the gaps checked:
+
+- [`/asking`](./skills/productivity/asking/SKILL.md) - no repo
+- [`/asking-with-docs`](./skills/engineering/asking-with-docs/SKILL.md) - same check inside a repo, against the docs, the code, and the ADRs
+
+Grill when the idea is still fuzzy. These are the skills that align you with the agent before the change starts.
 
 ### #2: The Agent Is Way Too Verbose
 
@@ -146,6 +151,7 @@ Skills I use daily for code work.
 
 - **[ask-michal](./skills/engineering/ask-michal/SKILL.md)** — Ask which skill or flow fits your situation. A router over the user-invoked skills in this repo.
 - **[grill-with-docs](./skills/engineering/grill-with-docs/SKILL.md)** — Grilling session that also builds your project's domain model, sharpening terminology and updating `GLOSSARY.md` and ADRs inline.
+- **[asking-with-docs](./skills/engineering/asking-with-docs/SKILL.md)** — Short alignment on a change you can already describe: check it against the docs, code, and ADRs, ask only the gaps, and record what settles.
 - **[triage](./skills/engineering/triage/SKILL.md)** — Move issues through a state machine of triage roles.
 - **[improve-codebase-architecture](./skills/engineering/improve-codebase-architecture/SKILL.md)** — Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
 - **[setup-michalkow-skills](./skills/engineering/setup-michalkow-skills/SKILL.md)** — Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo before using the other engineering skills.
@@ -194,4 +200,5 @@ General workflow tools, not code-specific.
 **Model-invoked**
 
 - **[grilling](./skills/productivity/grilling/SKILL.md)** — Interview the user relentlessly about a plan, decision, or idea until every branch of the design tree is resolved. The reusable interview primitive behind `grill-me`, `grill-with-docs`, `triage`, `wayfinder` and `improve-codebase-architecture`.
+- **[asking](./skills/productivity/asking/SKILL.md)** — Understand a change quickly and ask only where the outcome is vague, inconsistent, or contradicts the docs, code, or ADRs. The short pass behind `asking-with-docs`.
 - **[writing-for-agents](./skills/productivity/writing-for-agents/SKILL.md)** — Writing documents for agents: skills, AGENTS.md/CLAUDE.md, and any doc an agent reaches by a pointer.

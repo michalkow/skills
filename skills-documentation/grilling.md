@@ -14,6 +14,7 @@ Typing `/grilling` directly gets you the plain interview and nothing else. Where
 | --- | --- |
 | You aren't working in a working directory | [grill-me](https://michalkow.github.io/skills/grill-me) — the same [session](https://michalkow.github.io/skills/dictionary/session), under a name the agent will never fire by itself |
 | You are in a working directory | [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs) — the same session, and it writes `GLOSSARY.md` and ADRs as it goes |
+| The change is already clear, and you only want the gaps | [asking](https://michalkow.github.io/skills/asking) — one round, then stop. In a repo, [asking-with-docs](https://michalkow.github.io/skills/asking-with-docs) |
 | An effort too big to hold in one session | [wayfinder](https://michalkow.github.io/skills/wayfinder) — it charts a map and runs grilling inside the decision tickets |
 | A question that talking cannot settle — how something should look or feel | [prototype](https://michalkow.github.io/skills/prototype) — build the throwaway version, then come back |
 | A skill of your own that needs an interview | Invoke `/grilling` from it, rather than writing another interview |

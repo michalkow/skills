@@ -12,7 +12,8 @@ Reach for it when the build is too big for one agent [session](https://michalkow
 
 | Where you are | What to run |
 | --- | --- |
-| You haven't decided anything yet | [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs) first |
+| You haven't decided anything yet, and the idea is still fuzzy | [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs) first |
+| You can already describe the change, and it has not been checked | [asking-with-docs](https://michalkow.github.io/skills/asking-with-docs) first |
 | Decided, and the work fits one [context window](https://michalkow.github.io/skills/dictionary/context-window) | [implement](https://michalkow.github.io/skills/implement) — skip the spec |
 | Decided, and the work spans several sessions | `/to-spec`, then [to-tickets](https://michalkow.github.io/skills/to-tickets) |
 | A [wayfinder](https://michalkow.github.io/skills/wayfinder) map has cleared | `/to-spec #<map_issue>` |

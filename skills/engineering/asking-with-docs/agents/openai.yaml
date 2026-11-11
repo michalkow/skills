@@ -1,0 +1,5 @@
+interface:
+  display_name: "Asking with Docs"
+  short_description: "Check a change against the repo, ask only the gaps"
+policy:
+  allow_implicit_invocation: false

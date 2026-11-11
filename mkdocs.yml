@@ -10,6 +10,7 @@ nav:
       - User-invoked:
           - ask-michal: ask-michal.md
           - grill-with-docs: grill-with-docs.md
+          - asking-with-docs: asking-with-docs.md
           - triage: triage.md
           - improve-codebase-architecture: improve-codebase-architecture.md
           - setup-michalkow-skills: setup-michalkow-skills.md
@@ -49,6 +50,7 @@ nav:
           - wait-what: wait-what.md
       - Model-invoked:
           - grilling: grilling.md
+          - asking: asking.md
           - writing-for-agents: writing-for-agents.md
   - Dictionary:
       - AFK: dictionary/afk.md
