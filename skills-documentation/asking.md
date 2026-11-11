@@ -11,7 +11,7 @@ Type `/asking`, or the agent reaches for it when you ask for this pass by name �
 | What you have | Reach for |
 | --- | --- |
 | A change you can already describe, and no repo | `/asking` |
-| The same, inside a repo | [asking-with-docs](https://michalkow.github.io/skills/asking-with-docs) — the same pass, and it records a term or an ADR when one actually settles |
+| The same, inside a repo | [asking-with-docs](https://michalkow.github.io/skills/asking-with-docs) — the same pass, records a term or an ADR when one actually settles, and stops |
 | An idea that is still fuzzy | [grilling](https://michalkow.github.io/skills/grilling), usually through [grill-me](https://michalkow.github.io/skills/grill-me) or [grill-with-docs](https://michalkow.github.io/skills/grill-with-docs) |
 | An effort too big for one [session](https://michalkow.github.io/skills/dictionary/session) | [wayfinder](https://michalkow.github.io/skills/wayfinder) |
 
@@ -55,4 +55,4 @@ That is a valid round. You get the restatement and no questions, which means the
 
 ## Where it fits
 
-`asking` is the **primitive** for a short alignment pass, and a standalone you can run with no repo. [asking-with-docs](https://michalkow.github.io/skills/asking-with-docs) is the user-invoked front door that runs the same pass inside a repo and writes down what settled. [grilling](https://michalkow.github.io/skills/grilling) is the long interview, for when the idea is still fuzzy. When you are unsure which one fits, [ask-michal](https://michalkow.github.io/skills/ask-michal) routes you.
+`asking` is the **primitive** for a short alignment pass, and a standalone you can run with no repo. [asking-with-docs](https://michalkow.github.io/skills/asking-with-docs) is the user-invoked front door that runs the same pass inside a repo, writes down what settled, and stops — it never continues into the build. [grilling](https://michalkow.github.io/skills/grilling) is the long interview, for when the idea is still fuzzy. When you are unsure which one fits, [ask-michal](https://michalkow.github.io/skills/ask-michal) routes you.

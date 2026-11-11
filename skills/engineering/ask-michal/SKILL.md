@@ -16,7 +16,7 @@ The route most work travels. You have an idea and want it built.
 
 1. **Branch — how clear is the change already?**
    - **Still fuzzy** → **`/grill-with-docs`**. Relentless interview until every branch of the design tree is visited. Stateful: it keeps what it learns in `GLOSSARY.md` and ADRs. (No working directory? **`/grill-me`** — see Standalone. Both run `/grilling`.)
-   - **Already clear** → **`/asking-with-docs`**. Read the request, check it against the docs, the code, and the ADRs, and ask only where the outcome is vague, inconsistent, or contradicts those sources. One round, then a short restatement. (No working directory? **`/asking`**.) It records a glossary term or an ADR only when one actually settles.
+   - **Already clear** → **`/asking-with-docs`**. Read the request, check it against the docs, the code, and the ADRs, and ask only where the outcome is vague, inconsistent, or contradicts those sources. One round, a short restatement, and a glossary term or ADR only when one actually settles — then it **stops**. It does not implement. (No working directory? **`/asking`**.)
 2. **Branch — can you settle every question in conversation?** If a question needs a runnable answer (state, business logic, a UI you have to see), detour through a prototype, bridged by **`/handoff`** in both directions (a prototype lives in its own directory, which is exactly what `/handoff` is for — see Phase boundaries):
    - **`/handoff`** out, then open a fresh session against that file,
    - **`/prototype`** to answer the question with throwaway code,
