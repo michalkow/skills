@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Frontend Data"
+  short_description: "tRPC + TanStack Query conventions for m5kdev webapps"

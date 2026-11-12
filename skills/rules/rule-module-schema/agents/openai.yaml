@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Shared Schema"
+  short_description: "Shared Zod schema conventions for m5kdev apps"

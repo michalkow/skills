@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Module tRPC"
+  short_description: "tRPC router conventions for m5kdev modules"

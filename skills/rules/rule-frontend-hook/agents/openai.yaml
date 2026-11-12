@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Frontend Hook"
+  short_description: "Custom hook conventions for m5kdev webapps"

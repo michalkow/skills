@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Module File"
+  short_description: "BaseModule composition conventions for m5kdev"

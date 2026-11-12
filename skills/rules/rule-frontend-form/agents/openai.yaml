@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Frontend Form"
+  short_description: "Uncontrolled HeroUI form conventions for m5kdev webapps"

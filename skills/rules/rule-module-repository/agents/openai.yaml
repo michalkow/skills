@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Module Repository"
+  short_description: "Repository conventions for m5kdev modules"

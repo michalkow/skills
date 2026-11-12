@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Module Service"
+  short_description: "Service conventions for m5kdev modules"

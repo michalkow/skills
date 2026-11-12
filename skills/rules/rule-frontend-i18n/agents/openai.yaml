@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Frontend i18n"
+  short_description: "i18next copy conventions for m5kdev webapps"

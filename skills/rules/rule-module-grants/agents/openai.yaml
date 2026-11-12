@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Module Grants"
+  short_description: "Permission grant conventions for m5kdev modules"

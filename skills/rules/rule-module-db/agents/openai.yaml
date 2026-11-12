@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Module DB"
+  short_description: "Drizzle table conventions for m5kdev modules"

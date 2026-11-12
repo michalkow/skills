@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Frontend Component"
+  short_description: "React component conventions for m5kdev webapps"

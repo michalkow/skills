@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Module DTO"
+  short_description: "DTO conventions for m5kdev modules"

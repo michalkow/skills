@@ -1,0 +1,3 @@
+interface:
+  display_name: "Rule: Server Event Emit"
+  short_description: "When to emit server events in m5kdev apps"
