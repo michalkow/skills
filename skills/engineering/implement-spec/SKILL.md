@@ -34,7 +34,7 @@ Always **Single checkout**. Implement the **frontier** sequentially on the integ
 
 6. One **implementer subagent** then fixes every finding from that report.
 
-7. Run Bugbot subagent on the integration branch. Fix all issues raised by the bugbot review in a single **implementer subagent**.
+7. Run Bugbot (Cursor Provider Grok 4.6 high) subagent on the integration branch. Fix all issues raised by the bugbot review in a single **implementer subagent**.
 
 8. If this repo uses changeset, call the Skill tool with `changeset-add`.
 

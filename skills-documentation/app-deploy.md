@@ -13,7 +13,7 @@ You invoke this by typing `/app-deploy` — the [agent](https://michalkow.github
 | Fly is not installed, you are not logged in, or the app has never been created | [wizard](https://michalkow.github.io/skills/wizard), or do that setup yourself |
 | The deploy came back unhealthy, and you want to know why | [diagnosing-bugs](https://michalkow.github.io/skills/diagnosing-bugs) |
 | The code is not built yet | [implement](https://michalkow.github.io/skills/implement) or [implement-spec](https://michalkow.github.io/skills/implement-spec) first |
-| CI already deploys on merge | Don't; this [skill](https://michalkow.github.io/skills/dictionary/skill) is the manual path |
+| CI promotes `main` to `production` and deploys that branch | [push-to-production](https://michalkow.github.io/skills/push-to-production) |
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ No. It checks out `main` and pulls, then deploys that. A feature-branch checkout
 
 **Will it create a Fly app, or deploy from CI?**
 
-Neither. It runs the repo's `app:deploy` script against the app `apps/shared/fly.toml` already names. There is no "create if missing", and nothing watches your merges. If CI deploys on merge, this is the extra, on-demand path — you type it when you want latest `main` on Fly now.
+Neither. It runs the repo's `app:deploy` script against the app `apps/shared/fly.toml` already names. There is no "create if missing", and nothing watches your merges. When CI promotes `main` to `production` and deploys that branch, that is [push-to-production](https://michalkow.github.io/skills/push-to-production).
 
 ## It's working if
 
@@ -56,4 +56,4 @@ Neither. It runs the repo's `app:deploy` script against the app `apps/shared/fly
 
 `app-deploy` is a reach-for-it-anytime standalone. It sits after the code is on `main`, not inside the build chain.
 
-Its neighbours are [implement](https://michalkow.github.io/skills/implement) / [implement-spec](https://michalkow.github.io/skills/implement-spec), which produce that code; [wizard](https://michalkow.github.io/skills/wizard), which is how Fly gets set up when the preconditions are missing; and [diagnosing-bugs](https://michalkow.github.io/skills/diagnosing-bugs), which is the next move when the check comes back unhealthy. [ask-michal](https://michalkow.github.io/skills/ask-michal) routes you over the whole set.
+Its neighbours are [push-to-production](https://michalkow.github.io/skills/push-to-production), which promotes `main` to `production` and watches the GitHub Actions deploy instead of running `pnpm app:deploy`; [implement](https://michalkow.github.io/skills/implement) / [implement-spec](https://michalkow.github.io/skills/implement-spec), which produce that code; [wizard](https://michalkow.github.io/skills/wizard), which is how Fly gets set up when the preconditions are missing; and [diagnosing-bugs](https://michalkow.github.io/skills/diagnosing-bugs), which is the next move when the check comes back unhealthy. [ask-michal](https://michalkow.github.io/skills/ask-michal) routes you over the whole set.

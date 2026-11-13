@@ -4,7 +4,7 @@ description: Write one pending Changeset. Default scope is this thread and bump 
 disable-model-invocation: true
 ---
 
-Write one pending Changeset for release-worthy behavior in the named scope. The human later runs `changeset version`; that command combines every pending Changeset into one release and takes the highest bump.
+Write one pending Changeset for release-worthy behavior in the named scope. Version is later: `/push-to-production` runs `changeset version` and ships. This skill does not. That command combines every pending Changeset into one release and takes the highest bump.
 
 The bump is `patch` unless this invocation names `minor` or `major`. The scope is this thread unless this invocation names another one (since the last commit, since a SHA or tag, uncommitted files). Both can appear together. Write `.changeset/<id>.md` and stop. Leave CHANGELOG.md to version. Leave the file uncommitted.
 

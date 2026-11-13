@@ -1,0 +1,5 @@
+interface:
+  display_name: "Push to Production"
+  short_description: "Version, land on main, release to production, verify Fly"
+policy:
+  allow_implicit_invocation: false

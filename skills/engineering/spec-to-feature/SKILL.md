@@ -38,7 +38,7 @@ The git worktree is already set up before this skill runs. Stay in that worktree
 
 8. One **implementer subagent** then fixes every finding from that report, in this same worktree.
 
-9. Run Bugbot subagent on the commits in this worktree. Fix all issues raised by the bugbot review in a single **implementer subagent**, still in this worktree.
+9. Run Bugbot (Cursor Provider Grok 4.6 high) subagent on the commits in this worktree. Fix all issues raised by the bugbot review in a single **implementer subagent**, still in this worktree.
 
 10. If this repo uses changeset, call the Skill tool with `changeset-add`, patch is the default, pass minor if introducing breaking changes.
 
