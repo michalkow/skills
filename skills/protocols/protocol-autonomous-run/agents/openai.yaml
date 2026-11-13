@@ -1,0 +1,5 @@
+interface:
+  display_name: "Autonomous Run"
+  short_description: "Drive a task to a checkable exit condition"
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Visual Parity"
+  short_description: "Pixel-exact UI migration by image diff"
+policy:
+  allow_implicit_invocation: false

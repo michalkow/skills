@@ -1,0 +1,5 @@
+interface:
+  display_name: "Trace Forensics"
+  short_description: "Diagnose a captured profile or trace"
+policy:
+  allow_implicit_invocation: false

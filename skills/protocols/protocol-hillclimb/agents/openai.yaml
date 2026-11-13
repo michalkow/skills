@@ -1,0 +1,5 @@
+interface:
+  display_name: "Hillclimb"
+  short_description: "Improve one metric: change, measure, keep or revert"
+policy:
+  allow_implicit_invocation: false

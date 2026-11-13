@@ -109,6 +109,17 @@ Off the main flow entirely.
 - **`/teach`** — learn a concept over multiple sessions, using the current directory as a stateful workspace.
 - **`/writing-for-agents`** — reference for writing documents agents consume: skills, AGENTS.md, pointed-at docs.
 
+## Protocols
+
+Rigor protocols for runs where the easy path is to fool yourself. Each one is user-invoked. The model-invoked `principle-*` skills run underneath them, and under every flow above.
+
+- **`/protocol-hillclimb`** — push one metric toward a target: a frozen harness, one change per iteration, keep or revert, every attempt logged in `decision.tsv`. A one-off bug or regression is `/diagnosing-bugs`.
+- **`/protocol-eval`** — find out whether a skill, prompt, or `AGENTS.md` change actually changes agent behavior, with blinded candidates and a blinded judge on another model family.
+- **`/protocol-visual-parity`** — migrate or match UI pixel for pixel, proven by image diff against a baseline nobody edits.
+- **`/protocol-trace-forensics`** — you have a captured profile, trace, spindump, or heap snapshot. Load it into SQLite, narrow to the cause, and map it to source. Diagnosis only. The fix goes to `/diagnosing-bugs`.
+- **`/protocol-autonomous-run`** — "run until done": a checkable exit condition first, then iterate without stopping, reverting what doesn't help.
+- **`/protocol-session-pickup`** — the receiving side of `/handoff`: resume another agent's work from its handoff file, transcript, or branch without redoing what's done.
+
 ## Precondition
 
 **`/setup-michalkow-skills`** — run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.

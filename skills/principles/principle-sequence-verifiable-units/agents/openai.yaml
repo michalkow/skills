@@ -1,0 +1,3 @@
+interface:
+  display_name: "Sequence Verifiable Units"
+  short_description: "Order commits so history proves the change"

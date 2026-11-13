@@ -1,0 +1,5 @@
+interface:
+  display_name: "Eval"
+  short_description: "Blinded test of a skill or prompt change"
+policy:
+  allow_implicit_invocation: false

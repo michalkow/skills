@@ -1,0 +1,5 @@
+interface:
+  display_name: "Session Pickup"
+  short_description: "Resume another agent's in-flight work"
+policy:
+  allow_implicit_invocation: false

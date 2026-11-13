@@ -1,0 +1,3 @@
+interface:
+  display_name: "Migrate Then Delete"
+  short_description: "Cut over and delete the old API, no shims"
