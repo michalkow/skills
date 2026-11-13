@@ -1,0 +1,5 @@
+interface:
+  display_name: "Fix PostHog Issue"
+  short_description: "Root-cause and fix a PostHog error issue"
+policy:
+  allow_implicit_invocation: false

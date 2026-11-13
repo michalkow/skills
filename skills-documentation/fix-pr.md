@@ -1,6 +1,6 @@
 ## What it does
 
-`fix-pr` takes a problem you described and **opens** a pull request with the fix. You tell it what is wrong — a symptom, a broken path, a wrong result — and it reproduces it, applies the **smallest change** that makes the problem go away, typechecks as it goes, runs [code-review](https://michalkow.github.io/skills/code-review) at the end, commits, then opens a PR whose body is shaped by [pr](https://michalkow.github.io/skills/pr).
+`fix-pr` takes a problem you described and **opens** a pull request with the fix. You tell it what is wrong — a symptom, a broken path, a wrong result — and it reproduces it, traces it to its **root cause**, applies the smallest change at that cause, typechecks as it goes, runs [code-review](https://michalkow.github.io/skills/code-review) at the end, commits, then opens a PR whose body is shaped by [pr](https://michalkow.github.io/skills/pr).
 
 It does not implement a feature from a [ticket](https://michalkow.github.io/skills/dictionary/ticket) or a [spec](https://michalkow.github.io/skills/dictionary/spec), and it does not drive [tdd](https://michalkow.github.io/skills/tdd). The description of the problem is the input; the run is done when the PR contains every task-related change and its remote head matches local `HEAD`.
 
@@ -19,9 +19,9 @@ You invoke this by typing `/fix-pr` — the [agent](https://michalkow.github.io/
 
 `fix-pr` opens a PR from the branch you are on. Be on the branch you want reviewed before you start. If you are on the default branch, the run creates a branch first rather than opening a PR from `main`.
 
-## The smallest change
+## Root cause, then the smallest change
 
-The work is a **fix**, not a feature. Reproduce the problem, change only what it needs, confirm it is gone. Adjacent cleanup, a neighbouring refactor, a nicer API — none of that is the job.
+The work is a **fix**, not a feature. Reproduce the problem, trace it back to the first place the system went wrong (through [diagnosing-bugs](https://michalkow.github.io/skills/diagnosing-bugs) when the repro doesn't make the cause obvious), and change only what the fix needs at that place. `principle-fix-root-causes` decides where that is: a guard where the symptom surfaced is the fix only when the state that triggered it is legitimate. The root cause is stated in the commit message and the PR body. Adjacent cleanup, a neighbouring refactor, a nicer API — none of that is the job.
 
 The extra step, the same one [implement-pr](https://michalkow.github.io/skills/implement-pr) adds to [implement](https://michalkow.github.io/skills/implement), is that the run **opens** a pull request instead of leaving the commit sitting on the branch.
 
@@ -35,11 +35,11 @@ The run creates or updates a draft PR, verifies its remote head against local `H
 
 **How is this different from `/implement-pr`?**
 
-`implement-pr` builds a ticket or spec, driving `/tdd` at the seams. `fix-pr` takes a described problem and applies the smallest change that makes it go away. Both review, commit, and open a PR with a body shaped by `/pr`.
+`implement-pr` builds a ticket or spec, driving `/tdd` at the seams. `fix-pr` takes a described problem, finds its root cause, and fixes it there. Both review, commit, and open a PR with a body shaped by `/pr`.
 
 **How is this different from `/diagnosing-bugs`?**
 
-`diagnosing-bugs` is the hard-bug loop: a tight red feedback loop before any theory. Reach for it when you do not yet know why it is broken. `fix-pr` is for when you already know the problem and want the fix shipped as a pull request.
+`diagnosing-bugs` is the hard-bug loop: a tight red feedback loop before any theory. Reach for it when you do not yet know why it is broken. `fix-pr` is for when you already know the problem and want the fix shipped as a pull request; it calls `diagnosing-bugs` itself when the cause is not obvious from the repro.
 
 **Does this open the PR, or does `/pr`?**
 
@@ -52,8 +52,8 @@ The run creates a branch first, then opens the PR from that branch. Prefer start
 ## It's working if
 
 - The [session](https://michalkow.github.io/skills/dictionary/session) opens by restating the problem you described, rather than asking what to build.
-- You can see Skill tool calls for `code-review` and `pr`, and none for `tdd`.
-- The diff is the smallest change that makes the problem go away.
+- You can see Skill tool calls for `principle-fix-root-causes`, `code-review` and `pr`, and none for `tdd`.
+- The diff is the smallest change at the root cause, and the PR body names that cause.
 - The run reaches a commit without you prompting it to carry on, then a pull request exists with a Summary / Evidence / Merge Danger body.
 - You get a PR URL back, not just a commit hash.
 - The PR contains required release metadata, documentation, generated artifacts, and review fixes, with no task-related changes left outside it.

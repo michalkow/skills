@@ -19,6 +19,7 @@ nav:
           - implement: implement.md
           - implement-pr: implement-pr.md
           - fix-pr: fix-pr.md
+          - fix-posthog-issue: fix-posthog-issue.md
           - implement-spec: implement-spec.md
           - wayfinder: wayfinder.md
           - retro: retro.md

@@ -17,6 +17,7 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 - **[implement](./implement/SKILL.md)** — Build the work described by a spec or set of tickets, driving `/tdd` at public test seams and closing out with `/code-review` before committing.
 - **[implement-pr](./implement-pr/SKILL.md)** — Same as `/implement`, then opens a pull request with a body shaped by `/pr`.
 - **[fix-pr](./fix-pr/SKILL.md)** — Fix the problem the user described, then open a pull request with a body shaped by `/pr`.
+- **[fix-posthog-issue](./fix-posthog-issue/SKILL.md)** — Fix an error PostHog filed as a GitHub issue: find the environment and root cause, open a ready PR from `main` or a hotfix from `production`, and merge a severe production fix that passes every gate.
 - **[implement-spec](./implement-spec/SKILL.md)** — Implement a whole spec on one integration branch. Works the tickets as a task graph sequentially on a single checkout, then closes out with `/code-review`.
 - **[wayfinder](./wayfinder/SKILL.md)** — Plan a huge chunk of work — more than one agent session can hold — as a shared map of decision tickets on the issue tracker, resolved one at a time until the way to the destination is clear.
 - **[retro](./retro/SKILL.md)** — Suggest improvements to the coding agent's environment (navigation, automated checks, coding standards, steering files, tooling) after a session, most severe first.

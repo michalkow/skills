@@ -160,6 +160,7 @@ Skills I use daily for code work.
 - **[implement](./skills/engineering/implement/SKILL.md)** — Build the work described by a spec or set of tickets, driving `/tdd` at public test seams and closing out with `/code-review` before committing.
 - **[implement-pr](./skills/engineering/implement-pr/SKILL.md)** — Same as `/implement`, then opens a pull request with a body shaped by `/pr`.
 - **[fix-pr](./skills/engineering/fix-pr/SKILL.md)** — Fix the problem the user described, then open a pull request with a body shaped by `/pr`.
+- **[fix-posthog-issue](./skills/engineering/fix-posthog-issue/SKILL.md)** — Fix an error PostHog filed as a GitHub issue: find the environment and root cause, open a ready PR from `main` or a hotfix from `production`, and merge a severe production fix that passes every gate.
 - **[implement-spec](./skills/engineering/implement-spec/SKILL.md)** — Implement a whole spec on one integration branch. Works the tickets as a task graph sequentially on a single checkout, then closes out with `/code-review`.
 - **[wayfinder](./skills/engineering/wayfinder/SKILL.md)** — Plan a huge chunk of work, more than one agent session can hold, as a shared map of decision tickets on the issue tracker — resolve them one at a time until the way to the destination is clear.
 - **[retro](./skills/engineering/retro/SKILL.md)** — Suggest improvements to the coding agent's environment (navigation, automated checks, coding standards, steering files, tooling) after a session, most severe first.
