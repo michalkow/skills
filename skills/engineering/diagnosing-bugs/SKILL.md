@@ -136,3 +136,10 @@ Required before declaring done:
 - [ ] All `[DEBUG-...]` instrumentation removed (`grep` the prefix)
 - [ ] Throwaway prototypes deleted (or moved to a clearly-marked debug location)
 - [ ] The hypothesis that turned out correct is stated in the commit / PR message — so the next debugger learns
+
+## Principles
+
+- **Phases 3–4:** when the probes refute every ranked hypothesis, or a fix fails the loop twice, call the Skill tool with `principle-attack-the-premise` before generating more hypotheses.
+- **Phase 4, perf branch:** before trusting the baseline or the improvement, call the Skill tool with `principle-explain-the-number`.
+- **Phase 5, before applying the fix:** call the Skill tool with `principle-fix-root-causes`. A guard where the symptom surfaced is a fix only when the triggering state is legitimate.
+- **Phase 5, committing:** commit the failing regression test before the fix, so the history shows red, then green (`principle-sequence-verifiable-units`).

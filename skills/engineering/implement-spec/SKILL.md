@@ -39,3 +39,8 @@ Always **Single checkout**. Implement the **frontier** sequentially on the integ
 8. If this repo uses changeset, call the Skill tool with `changeset-add`.
 
 9. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch, then call skill tool with `pr`.
+
+## Principles
+
+- **Before step 5:** call the Skill tool with `principle-prove-it-works` and check the integration branch on the real artifact, through the project's verification skill if it has one.
+- **Steps 6 and 7:** tell each implementer subagent to call the Skill tool with `principle-fix-root-causes` before fixing a finding.

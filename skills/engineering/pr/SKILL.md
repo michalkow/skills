@@ -168,3 +168,8 @@ Execution-based evidence is A-tier. Test results, console output. Show the exact
 Describe whether it's a one-way or two-way door. You can walk back through two-way doors, but not one-way doors. A PR that is cheap to roll back is lower risk. Changes that involve destructive actions or hard-to-reverse decisions are one-way doors.
 
 The blast radius is the potential impact or scope of the changes introduced by this PR. Consider all possibilities. Examples are layout shift, breakages for consumers, mobile responsiveness, etc.
+
+## Principles
+
+- **Evidence** comes from the real artifact: the running app, the actual output, the actual test run (`principle-prove-it-works`).
+- **A performance number** in Evidence carries its run count, spread, and limiter. Call the Skill tool with `principle-explain-the-number` before writing it.

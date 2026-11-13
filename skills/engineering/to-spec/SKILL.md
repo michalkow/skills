@@ -73,3 +73,12 @@ A description of the things that are out of scope for this spec.
 Any further notes about the feature.
 
 </spec-template>
+
+## Principles
+
+Before writing Implementation Decisions in step 3, settle the shape.
+
+- Name the core data shape and the structure that organizes it (`principle-model-the-domain`).
+- If the requirement breaks an assumption the current design rests on, call the Skill tool with `principle-redesign-from-first-principles` and describe the redesign, not a bolt-on.
+- If an internal API, module, or data shape is being replaced, call the Skill tool with `principle-migrate-then-delete`, then record the cutover as an explicit decision: migrate every caller and delete the old form, or keep a compatibility period and say why.
+- If a decision has no precedent in the codebase and the conversation did not settle it, list it under Further Notes as an open question for `/prototype` (`principle-exhaust-the-design-space`).

@@ -13,7 +13,13 @@ The issue tracker and triage label vocabulary should have been provided to you. 
 
 2. Sketch out the seams at which you're going to test the feature. Existing seams should be preferred to new ones. Use the highest seam possible. If new seams are needed, create them at the highest point you can. The fewer seams across the codebase, the better - the ideal number is one.
 
-3. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
+3. Settle the shape before writing Implementation Decisions.
+   - Name the core data shape and the structure that organizes it (`principle-model-the-domain`).
+   - If the requirement breaks an assumption the current design rests on, call the Skill tool with `principle-redesign-from-first-principles` and describe the redesign, not a bolt-on.
+   - If an internal API, module, or data shape is being replaced, call the Skill tool with `principle-migrate-then-delete`, then record the cutover as an explicit decision: migrate every caller and delete the old form, or keep a compatibility period and say why.
+   - If a decision has no precedent in the codebase and the conversation did not settle it, list it under Further Notes as an open question for `/prototype` (`principle-exhaust-the-design-space`).
+
+4. Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.
 
 <spec-template>
 

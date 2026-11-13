@@ -55,13 +55,24 @@ Each smell reads *what it is* → *how to fix*; match it against the diff:
 - **Middle Man** — a class or function that mostly just delegates onward. → cut it, call the real target direct.
 - **Refused Bequest** — a subclass or implementer that ignores or overrides most of what it inherits. → drop the inheritance, use composition.
 
+The baseline also carries these **principle checks**, bound by the same two rules. Each line is a complete detector. Before reporting a borderline principle finding, call the Skill tool with the skill named on its line.
+
+- **Inner Guard** — a null check, re-validation, or defensive try/catch on data a boundary already parsed. → delete it; validate at the boundary (`principle-boundary-discipline`).
+- **Guard Over a Bad State** — a new check, retry, default, or swallowed error that makes a symptom vanish when the state should never exist. → fix what produced the state (`principle-fix-root-causes`).
+- **Leftover Legacy** — a deprecated alias, re-export, adapter, or shim kept after its callers moved, with no ticket scheduled to delete it. → delete it in this change (`principle-migrate-then-delete`).
+- **Hollow or Pinned Test** — a test that would still pass if the behavior broke, or would fail if only the internals changed. → rewrite it against the two imagined edits in `tdd`.
+- **Synced Flags** — a second boolean or status field that must stay in sync with another, or one more branch on an existing chain; the sharper form of Repeated Switches. → encode the states in one structure (`principle-model-the-domain`).
+- **Interchangeable IDs** — two parameters of the same primitive type that mean different things; the sharper form of Primitive Obsession. → brand them (`principle-type-system-discipline`).
+- **One-Caller Layer** — a wrapper, adapter, or layer with one caller or one implementation, or module state where a local would do; the sharper form of Middle Man. → inline it, shrink the scope (`principle-minimize-reader-load`).
+- **Unsafe Rerun** — a new script, job, migration, or setup step that breaks when run twice or after a crash halfway. → derive each step from the current state (`principle-make-operations-idempotent`).
+
 ### 4. Spawn both sub-agents in parallel
 
 **Standards sub-agent prompt** — include:
 
 - The full diff command and commit list.
 - The list of standards-source files you found in step 3, **plus the smell baseline from step 3** pasted in full — the sub-agent has no other access to it.
-- The brief: "Report — per file/hunk where relevant — (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. Distinguish hard violations from judgement calls — documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words."
+- The brief: "Report — per file/hunk where relevant — (a) every place the diff violates a documented standard: cite the standard (file + the rule); and (b) any baseline smell you spot: name it and quote the hunk. A principle check names a skill: call the Skill tool with it to confirm a borderline finding before reporting it. Distinguish hard violations from judgement calls — documented-standard breaches can be hard, but baseline smells are always judgement calls, and a documented repo standard overrides the baseline. Skip anything tooling enforces. Under 400 words."
 
 **Spec sub-agent prompt** — include:
 

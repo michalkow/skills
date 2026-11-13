@@ -6,8 +6,7 @@ Each is model-invoked: its description names the moment it applies, so the agent
 
 - **[principle-attack-the-premise](./principle-attack-the-premise/SKILL.md)** — Two fixes on one premise failed the same check: write the premise down and test it before the next fix.
 - **[principle-explain-the-number](./principle-explain-the-number/SKILL.md)** — Before trusting a measured number: name its limiter, rule out what else it could be measuring, keep run count and spread with it.
-- **[principle-test-behavior-not-implementation](./principle-test-behavior-not-implementation/SKILL.md)** — The two imagined edits, hollow-test smells, and who observes what. Builds on `/tdd`.
-- **[principle-migrate-then-delete](./principle-migrate-then-delete/SKILL.md)** — Migrate every caller and delete the old internal API in the same wave. No shims.
+- **[principle-migrate-then-delete](./principle-migrate-then-delete/SKILL.md)** — Migrate every caller and delete the old internal API in the same plan. No shim left behind.
 - **[principle-build-the-lever](./principle-build-the-lever/SKILL.md)** — Script, codemod, or generator instead of hand edits, so the work is rerunnable and checkable.
 - **[principle-fix-root-causes](./principle-fix-root-causes/SKILL.md)** — A guard is a fix only when the state it handles is legitimate. Builds on `/diagnosing-bugs`.
 - **[principle-model-the-domain](./principle-model-the-domain/SKILL.md)** — Warning signs that a conditional chain wants to be a structure.
@@ -19,3 +18,7 @@ Each is model-invoked: its description names the moment it applies, so the agent
 - **[principle-sequence-verifiable-units](./principle-sequence-verifiable-units/SKILL.md)** — Commit order as the argument: failing test, then fix.
 - **[principle-exhaust-the-design-space](./principle-exhaust-the-design-space/SKILL.md)** — No precedent in the codebase: build two or three versions and compare.
 - **[principle-redesign-from-first-principles](./principle-redesign-from-first-principles/SKILL.md)** — A requirement that breaks a design assumption gets a redesign, not a bolt-on.
+
+Wired in append-only `## Principles` blocks at the end of upstream skills (`tdd`, `diagnosing-bugs`, `implement`, `implement-spec`, `pr`, `to-spec`, `writing-for-agents`), as principle checks in `code-review`'s smell baseline, and inline in this repo's own skills (`fix-pr`, `implement-pr`, `spec-to-feature`, `auto-spec`, `auto-tickets`). pstack's test-behavior principle was folded into `tdd`'s block instead of kept as a skill.
+
+**Pointer convention.** "Call the Skill tool with `principle-x`" means load the skill there. A skill name in parentheses means the line already carries the whole instruction and the name is only its source. Write a direct call wherever the full rule is needed, because a parenthetical is not reliably loaded.

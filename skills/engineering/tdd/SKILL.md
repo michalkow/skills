@@ -36,3 +36,9 @@ When the shape of that interface is itself in question — how deep the module i
 - **Red before green.** Write the failing test first, then only enough code to pass it. Don't anticipate future tests or add speculative features.
 - **One slice at a time.** One seam, one test, one minimal implementation per cycle.
 - **Refactoring is not part of the loop.** It belongs to the review stage (see the `code-review` skill), not the red → green implementation cycle.
+
+## Principles
+
+- **After each slice goes green, before committing,** run two imagined edits on the new test. First, break the behavior: return a wrong value, skip an effect, or perform it twice. The test must fail. Second, restructure the internals and keep every observable result the same. The test must pass. A test that survives the first edit is hollow, usually because its assertion is looser than the contract (`toBeDefined()`, `length > 0`, "did not throw"). A test that fails the second is implementation-coupled. Rewrite or delete either one.
+- **An assertion that something did not happen** ("the payment client got no call") needs a sibling case where it does happen, so the test proves it can see it.
+- **When a slice stays red after two attempts that rest on the same assumption,** call the Skill tool with `principle-attack-the-premise` before the third attempt.

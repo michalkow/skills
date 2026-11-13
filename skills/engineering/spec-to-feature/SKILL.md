@@ -34,11 +34,11 @@ The git worktree is already set up before this skill runs. Stay in that worktree
 
    Implement each ticket on the **frontier** in sequence, still in this worktree. For each ticket: call the Skill tool with `tdd`; commit here. When a ticket lands, take the next unblocked ticket.
 
-7. Once all tickets are complete, call the Skill tool with `code-review` on the commits in this worktree. This step is done when the two-axis report sits under `## Standards` and `## Spec` in the user-visible transcript.
+7. Once all tickets are complete, call the Skill tool with `principle-prove-it-works` and check the change on the real artifact, through the project's verification skill if it has one. Then call the Skill tool with `code-review` on the commits in this worktree. This step is done when the two-axis report sits under `## Standards` and `## Spec` in the user-visible transcript.
 
-8. One **implementer subagent** then fixes every finding from that report, in this same worktree.
+8. One **implementer subagent** then fixes every finding from that report, in this same worktree. Tell it to call the Skill tool with `principle-fix-root-causes` before fixing a finding.
 
-9. Run Bugbot (Cursor Provider Grok 4.6 high) subagent on the commits in this worktree. Fix all issues raised by the bugbot review in a single **implementer subagent**, still in this worktree.
+9. Run Bugbot (Cursor Provider Grok 4.6 high) subagent on the commits in this worktree. Fix all issues raised by the bugbot review in a single **implementer subagent**, still in this worktree, with the same `principle-fix-root-causes` instruction.
 
 10. If this repo uses changeset, call the Skill tool with `changeset-add`, patch is the default, pass minor if introducing breaking changes.
 

@@ -10,9 +10,11 @@ Call the Skill tool with `tdd` where possible; use its seam-selection guidance.
 
 Run typechecking regularly, single test files regularly, and the full test suite once at the end.
 
-Once done, call the Skill tool with `code-review` to review the work.
+Once done, call the Skill tool with `principle-prove-it-works` and check the change on the real artifact, through the project's verification skill if it has one.
 
-Fix every finding from that report.
+Then call the Skill tool with `code-review` to review the work.
+
+Fix every finding from that report. Call the Skill tool with `principle-fix-root-causes` before the first fix.
 
 If this repo uses Changesets, call the Skill tool with `changeset-add`; patch is the default, minor for breaking changes.
 

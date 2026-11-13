@@ -13,3 +13,7 @@ Run typechecking regularly, single test files regularly, and the full test suite
 Once done, use /code-review to review the work.
 
 Commit your work to the current branch.
+
+## Principles
+
+- **Before `/code-review`:** call the Skill tool with `principle-prove-it-works` and check the change on the real artifact, through the project's verification skill if it has one.
