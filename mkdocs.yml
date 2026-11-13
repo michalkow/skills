@@ -34,6 +34,7 @@ nav:
           - research-council: research-council.md
           - changeset-add: changeset-add.md
       - Model-invoked:
+          - m5kdev-setup-documentation: m5kdev-setup-documentation.md
           - prototype: prototype.md
           - diagnosing-bugs: diagnosing-bugs.md
           - research: research.md

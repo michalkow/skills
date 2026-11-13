@@ -177,6 +177,7 @@ Skills I use daily for code work.
 
 **Model-invoked**
 
+- **[m5kdev-setup-documentation](./skills/engineering/m5kdev-setup-documentation/SKILL.md)** — Bootstrap user-facing product guides from the repo, align with the user, and recommend bottom FAQs with real error codes and self-service recovery.
 - **[prototype](./skills/engineering/prototype/SKILL.md)** — Build a throwaway prototype to answer a design question — a single shareable HTML file for state/logic questions, or several radically different UI variations toggleable from one route.
 - **[diagnosing-bugs](./skills/engineering/diagnosing-bugs/SKILL.md)** — Disciplined diagnosis loop for hard bugs and performance regressions: build a feedback loop that goes red on this bug → minimise → hypothesise → instrument → fix → regression-test.
 - **[research](./skills/engineering/research/SKILL.md)** — Investigate a question against high-trust primary sources and capture the findings as a cited Markdown file in the repo, run as a background agent.
