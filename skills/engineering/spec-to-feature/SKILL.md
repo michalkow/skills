@@ -42,4 +42,6 @@ The git worktree is already set up before this skill runs. Stay in that worktree
 
 10. If this repo uses changeset, call the Skill tool with `changeset-add`, patch is the default, pass minor if introducing breaking changes.
 
-11. If a draft PR exists, mark it ready for review. Otherwise, resolve each ticket the way the issue tracker closes work, then call the Skill tool with `pr`.
+11. Resolve each ticket the way the issue tracker closes work, then call the Skill tool with `pr` to create a pull request.
+
+12. Push all commits. Verify the PR’s remote head matches local `HEAD`. Confirm no task-related changes remain outside the PR. Only then mark the PR ready and report completion.
