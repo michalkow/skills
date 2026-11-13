@@ -24,6 +24,7 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 - **[push-to-production](./push-to-production/SKILL.md)** — Run `changeset version` from the repo's dev dependency, merge that onto `main`, then merge a release pull request from `main` into `production`, watch the GitHub Actions deploy, and confirm with `fly` that the production app is healthy.
 - **[drizzle-migrate](./drizzle-migrate/SKILL.md)** — Generate and apply Drizzle migrations (`pnpm drizzle:generate` then `pnpm drizzle:migrate`), patching the SQL on failure unless the patch is hard to roll back.
 - **[stktk-upgrade](./stktk-upgrade/SKILL.md)** — Switch to Node 14.18.2, source `bin/mac.sh`, commit any uncommitted work, `npm run publish`, then source `bin/upgrade.sh`.
+- **[m5kdev-update](./m5kdev-update/SKILL.md)** — Update an enrolled app to `m5kdev@latest` (or a named version), then apply the migration guides for that jump.
 - **[create-verification-skill](./create-verification-skill/SKILL.md)** — Generate a project-local verification skill that launches the app, drives a feature the way a user would, and captures evidence.
 - **[maintain-verification-skill](./maintain-verification-skill/SKILL.md)** — Keep a project's verification skill and feature map honest as the app changes: source coverage, a live pass, at most one PR of proven corrections.
 - **[council](./council/SKILL.md)** — Three flagship models from three providers review the work, iterating until they agree — without letting scope creep.

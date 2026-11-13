@@ -1,0 +1,5 @@
+interface:
+  display_name: "m5kdev Update"
+  short_description: "Update an enrolled app to m5kdev@latest and apply its migration guides"
+policy:
+  allow_implicit_invocation: false
