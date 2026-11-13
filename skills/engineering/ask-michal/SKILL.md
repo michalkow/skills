@@ -112,3 +112,5 @@ Off the main flow entirely.
 ## Precondition
 
 **`/setup-michalkow-skills`** — run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.
+
+**`/m5kdev-setup-project`** — run once per project, before the first feature, and again when its purpose shifts. It reads the code, then grills you on the **why** (problem, users, outcome, non-goals, trade-offs), never the architecture, and writes `PROJECT.md`, the **north star**. A pointer in `AGENTS.md` makes every later agent check its work against it and flag anything that goes against it.

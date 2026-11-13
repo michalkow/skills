@@ -1,0 +1,5 @@
+interface:
+  display_name: "m5kdev Setup Project"
+  short_description: "Grill out why the project exists and write PROJECT.md"
+policy:
+  allow_implicit_invocation: false
