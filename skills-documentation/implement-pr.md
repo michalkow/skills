@@ -2,7 +2,7 @@
 
 `implement-pr` is [implement](https://michalkow.github.io/skills/implement) plus one extra step: it **opens** a pull request. You point it at a [ticket](https://michalkow.github.io/skills/dictionary/ticket), a [spec](https://michalkow.github.io/skills/dictionary/spec), or the plan you just agreed, and it builds the same way `implement` does — [tdd](https://michalkow.github.io/skills/tdd) at the seams, typecheck as it goes, [code-review](https://michalkow.github.io/skills/code-review) at the end, commit — then it opens a PR whose body is shaped by [pr](https://michalkow.github.io/skills/pr).
 
-It never reopens the plan, and it does not stop at the commit. Whatever was settled upstream is the input; the run is done when a pull request exists, not when `HEAD` has moved.
+It never reopens the plan, and it does not stop at the commit. Whatever was settled upstream is the input; the run is done when the PR contains every task-related change and its remote head matches local `HEAD`.
 
 ## When to reach for it
 
@@ -29,6 +29,10 @@ The build is `implement`. The extra step is that the run **opens** a pull reques
 
 [pr](https://michalkow.github.io/skills/pr) is a format, not a workflow: it does not push, and it does not open anything. `implement-pr` is the workflow that calls it. The body it writes is the same three-part shape — Summary as the smallest visual, Evidence as a before and after, Merge Danger as a one-way or two-way door plus blast radius. You do not type `/pr` afterwards; this skill already did.
 
+Required release metadata is created before the final commit and push. After a nested skill returns, the parent workflow resumes and includes its task-related outputs, even when the nested skill leaves them uncommitted. Documentation, generated artifacts, and review fixes belong in that same delivery; unrelated pre-existing changes are preserved.
+
+The run creates or updates a draft PR, verifies its remote head against local `HEAD`, checks its diff and remaining task-related changes, then marks it ready. An existing PR alone is not the completion criterion.
+
 ## Common questions
 
 **How is this different from `/implement`?**
@@ -49,6 +53,8 @@ The run creates a branch first, then opens the PR from that branch. Prefer start
 - You can see Skill tool calls for `tdd`, `code-review`, and `pr`.
 - The run reaches a commit without you prompting it to carry on, then a pull request exists with a Summary / Evidence / Merge Danger body.
 - You get a PR URL back, not just a commit hash.
+- The PR contains required release metadata, documentation, generated artifacts, and review fixes, with no task-related changes left outside it.
+- Its remote head matches local `HEAD` before it is marked ready.
 
 ## Where it fits
 

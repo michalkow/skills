@@ -30,9 +30,9 @@ So it does not validate anything, and it does not decide anything. It captures w
 
 ## Seams before prose
 
-Before it writes a word, `to-spec` sketches the **seams** the feature will be tested at, and checks them with you. It prefers seams that already exist to new ones, and takes the highest seam it can — the ideal number across a change is one.
+Before writing the spec, `to-spec` selects the **seams** the feature will be tested at and records why they fit, without asking for approval. It prefers seams that already exist to new ones, and takes the highest seam it can — the ideal number across a change is one.
 
-Those agreed seams then travel. [tdd](https://michalkow.github.io/skills/tdd) works only at pre-agreed seams, and [code-review](https://michalkow.github.io/skills/code-review) reviews the diff against the spec, so a seam nobody agreed to shows up as a review finding. The binding is indirect — it runs through this document — which is exactly why the seam conversation is worth taking seriously here rather than deferring it to implementation.
+The selected seams travel in Testing Decisions. [tdd](https://michalkow.github.io/skills/tdd) follows boundaries specified in the task or spec and chooses a reasonable existing public interface when none are specified. Seam selection proceeds without a confirmation question; [code-review](https://michalkow.github.io/skills/code-review) checks the resulting work against the spec.
 
 ## Common questions
 

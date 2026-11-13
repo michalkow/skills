@@ -53,7 +53,7 @@ Review is done when the two-axis report sits under `## Standards` and `## Spec` 
 
 **Does it drive tdd like implement does?**
 
-Yes. Each ticket is built with `tdd`. There is no step where seams get agreed interactively, as there is in an `implement` session, so name the seams in the spec or the tickets if you want them pinned.
+Yes. Each ticket is built with `tdd`. Name the seams in the spec or tickets to pin them. Otherwise `tdd` selects the most reasonable existing public boundary and proceeds without asking for approval, as it does in an `implement` session.
 
 **Blocked tickets never start, even after their blocker has merged.**
 

@@ -2,7 +2,7 @@
 
 `fix-pr` takes a problem you described and **opens** a pull request with the fix. You tell it what is wrong — a symptom, a broken path, a wrong result — and it reproduces it, applies the **smallest change** that makes the problem go away, typechecks as it goes, runs [code-review](https://michalkow.github.io/skills/code-review) at the end, commits, then opens a PR whose body is shaped by [pr](https://michalkow.github.io/skills/pr).
 
-It does not implement a feature from a [ticket](https://michalkow.github.io/skills/dictionary/ticket) or a [spec](https://michalkow.github.io/skills/dictionary/spec), and it does not drive [tdd](https://michalkow.github.io/skills/tdd). The description of the problem is the input; the run is done when a pull request exists, not when `HEAD` has moved.
+It does not implement a feature from a [ticket](https://michalkow.github.io/skills/dictionary/ticket) or a [spec](https://michalkow.github.io/skills/dictionary/spec), and it does not drive [tdd](https://michalkow.github.io/skills/tdd). The description of the problem is the input; the run is done when the PR contains every task-related change and its remote head matches local `HEAD`.
 
 ## When to reach for it
 
@@ -26,6 +26,10 @@ The work is a **fix**, not a feature. Reproduce the problem, change only what it
 The extra step, the same one [implement-pr](https://michalkow.github.io/skills/implement-pr) adds to [implement](https://michalkow.github.io/skills/implement), is that the run **opens** a pull request instead of leaving the commit sitting on the branch.
 
 [pr](https://michalkow.github.io/skills/pr) is a format, not a workflow: it does not push, and it does not open anything. `fix-pr` is the workflow that calls it. The body it writes is the same three-part shape — Summary as the smallest visual, Evidence as a before and after, Merge Danger as a one-way or two-way door plus blast radius. You do not type `/pr` afterwards; this skill already did.
+
+Required release metadata is created before the final commit and push. After a nested skill returns, the parent workflow resumes and includes its task-related outputs, even when the nested skill leaves them uncommitted. Documentation, generated artifacts, and review fixes belong in that same delivery; unrelated pre-existing changes are preserved.
+
+The run creates or updates a draft PR, verifies its remote head against local `HEAD`, checks its diff and remaining task-related changes, then marks it ready. An existing PR alone is not the completion criterion.
 
 ## Common questions
 
@@ -52,6 +56,8 @@ The run creates a branch first, then opens the PR from that branch. Prefer start
 - The diff is the smallest change that makes the problem go away.
 - The run reaches a commit without you prompting it to carry on, then a pull request exists with a Summary / Evidence / Merge Danger body.
 - You get a PR URL back, not just a commit hash.
+- The PR contains required release metadata, documentation, generated artifacts, and review fixes, with no task-related changes left outside it.
+- Its remote head matches local `HEAD` before it is marked ready.
 
 ## Where it fits
 

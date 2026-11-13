@@ -14,7 +14,7 @@ Reachable only when you type them (Claude Code: `disable-model-invocation: true`
 - **[setup-michalkow-skills](./setup-michalkow-skills/SKILL.md)** — Configure this repo for the engineering skills (issue tracker, triage labels, domain doc layout). Run once per repo.
 - **[to-spec](./to-spec/SKILL.md)** — Turn the current conversation into a spec and publish it to the issue tracker.
 - **[to-tickets](./to-tickets/SKILL.md)** — Break any plan, spec, or conversation into a set of tracer-bullet tickets, each declaring its blocking edges — text in a local file, or native blocking links on a real tracker.
-- **[implement](./implement/SKILL.md)** — Build the work described by a spec or set of tickets, driving `/tdd` at pre-agreed seams and closing out with `/code-review` before committing.
+- **[implement](./implement/SKILL.md)** — Build the work described by a spec or set of tickets, driving `/tdd` at public test seams and closing out with `/code-review` before committing.
 - **[implement-pr](./implement-pr/SKILL.md)** — Same as `/implement`, then opens a pull request with a body shaped by `/pr`.
 - **[fix-pr](./fix-pr/SKILL.md)** — Fix the problem the user described, then open a pull request with a body shaped by `/pr`.
 - **[implement-spec](./implement-spec/SKILL.md)** — Implement a whole spec on one integration branch. Works the tickets as a task graph sequentially on a single checkout, then closes out with `/code-review`.

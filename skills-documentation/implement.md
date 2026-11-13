@@ -36,18 +36,18 @@ If the tickets came from [to-tickets](https://michalkow.github.io/skills/to-tick
 A run is five beats, in order:
 
 1. Read the ticket or spec and work out the seams.
-2. Drive [tdd](https://michalkow.github.io/skills/tdd) at the pre-agreed seams, one red-green slice at a time.
+2. Drive [tdd](https://michalkow.github.io/skills/tdd) at public seams, one red-green slice at a time.
 3. Typecheck often, run single test files as it goes.
 4. Run the full test suite once, at the end.
 5. Run [code-review](https://michalkow.github.io/skills/code-review), then commit to the current branch.
 
 One run covers one ticket. The tickets [to-tickets](https://michalkow.github.io/skills/to-tickets) produces are tracer-bullet vertical slices sized to fit a single fresh [context window](https://michalkow.github.io/skills/dictionary/context-window), so the intended rhythm is: clear context, implement one ticket, commit, clear again. Each ticket is self-contained, which is what makes the previous ticket's context disposable.
 
-## Pre-agreed seams
+## Test seams
 
-The idea the skill runs on is the **seam**: the public boundary you observe behaviour at, without reaching inside. Tests live at seams. Working at a seam agreed before any code is written is what keeps the tests durable, because the implementation underneath can be rewritten without the tests moving.
+The idea the skill runs on is the **seam**: the public boundary you observe behaviour at, without reaching inside. Tests at public seams survive changes to the implementation underneath.
 
-The word "pre-agreed" is doing real work, and it is also the skill's weakest joint. Nothing inside `implement` agrees the seams. `tdd` is the skill that asks, and it refuses to write a test at an unconfirmed seam. So in practice the agreement happens either upstream in the spec, or in the first exchange of the run. If it happens nowhere, the precondition never fires and the run quietly becomes "just write the code". Naming the seams in the spec is what stops that.
+[tdd](https://michalkow.github.io/skills/tdd) owns seam selection. It follows boundaries specified in the task or spec, or chooses the narrowest existing public interface that meaningfully covers the behavior. It states the choice and proceeds without asking for approval.
 
 ## Common questions
 

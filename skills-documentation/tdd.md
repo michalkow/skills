@@ -2,7 +2,7 @@
 
 `tdd` builds a feature or fixes a bug test-first: one failing test, then just enough code to pass it, then the next behaviour. It carries the standards that make that loop produce tests worth keeping — what a good test is, where tests go, what mocks are for, and the three anti-patterns that quietly ruin a suite.
 
-It writes no test at a seam you have not agreed to first. Before any test exists, it names the public boundaries it intends to test at and stops for your confirmation, because testing effort is finite and this is where you spend it on the critical paths instead of on every edge case. The other thing to know is that `tdd` is a **reference**, not a driver. It holds the rules of the loop, and something else (you, or [implement](https://michalkow.github.io/skills/implement)) runs the [session](https://michalkow.github.io/skills/dictionary/session) that applies them.
+It chooses the most reasonable public test boundaries and proceeds without asking you to approve them. Boundaries already specified in the task or spec take precedence; otherwise it uses the narrowest existing interface that meaningfully covers the behavior, focusing effort on critical paths and complex logic. The other thing to know is that `tdd` is a **reference**, not a driver. It holds the rules of the loop, and something else (you, or [implement](https://michalkow.github.io/skills/implement)) runs the [session](https://michalkow.github.io/skills/dictionary/session) that applies them.
 
 ## When to reach for it
 
@@ -13,7 +13,7 @@ Reach for it when there is a concrete behaviour to build, with an input and an o
 | Your situation | Where to go |
 | --- | --- |
 | A behaviour with defined inputs and outputs — business logic, a request/response contract, a transformation, validation | `tdd` |
-| The behaviour isn't pinned down yet | [to-spec](https://michalkow.github.io/skills/to-spec), which also agrees the test seams before any code is written |
+| The behaviour isn't pinned down yet | [to-spec](https://michalkow.github.io/skills/to-spec), which records the testing decisions before implementation |
 | The question is really the shape of the interface, not the tests | [codebase-design](https://michalkow.github.io/skills/codebase-design) |
 | You have a [spec](https://michalkow.github.io/skills/dictionary/spec) or [tickets](https://michalkow.github.io/skills/dictionary/ticket) and want the whole build run for you | [implement](https://michalkow.github.io/skills/implement), which drives `tdd` per ticket |
 | Config, wiring, glue, type annotations, straight CRUD delegation | Nothing here fits well — see the open gap below |
@@ -32,7 +32,7 @@ Three words carry this skill.
 
 **Vertical slice.** One seam, one test, one minimal implementation, then repeat — the first cycle being a **tracer bullet** that proves a single path end to end. The opposite is horizontal slicing: all the tests first, then all the code. Bulk tests verify *imagined* behaviour, they check the shape of things rather than what a user does, and they commit you to a test structure before you understand the implementation.
 
-**Pre-agreed seam.** A seam is the public boundary you observe behaviour at without reaching inside. The rule is absolute: no test at an unconfirmed seam. In the full chain the seams are agreed earlier, during [to-spec](https://michalkow.github.io/skills/to-spec) — "`/tdd` is told to only work at pre-agreed test seams, `/code-review` checks that only agreed-upon test seams were used." Invoked on its own, `tdd` asks you directly.
+**Public seam.** A seam is the boundary you observe behaviour at without reaching inside. The agent follows boundaries specified in the task or spec. When none are specified, it inspects existing interfaces and tests, selects the narrowest meaningful boundary, briefly explains the choice, and starts testing. Seam selection is an implementation decision, not a confirmation gate.
 
 The three anti-patterns it is written to prevent:
 
@@ -52,7 +52,7 @@ Because the refactor step was removed and the description was not. The removal w
 
 **It asked me to choose a test seam and I had no idea which to pick.**
 
-This is the most-reported friction with the skill ([issue #607](https://github.com/mattpocock/skills/issues/607)). The prompt lists candidate seams by name only, with nothing about what each one catches or misses, so you are choosing between labels. There is no fix shipped yet. The practical workaround is to ask the agent for the trade-offs before answering — what does the component-level seam miss that the integration seam catches, and how much slower is it. It is also why the chain agrees seams up front in `to-spec`, where you have the whole feature in view rather than one prompt.
+This version delegates that choice to the agent. It uses the boundaries already specified, or chooses an existing public interface based on behavioral coverage and the repository's test infrastructure. It explains the choice and proceeds. Neither direct invocation nor the implementation workflows require seam approval.
 
 **It wrote the implementation before the test, even though the skill says red first.**
 
@@ -76,7 +76,7 @@ No. Run against one ticket, it will happily propose work that belongs to a sibli
 
 ## It's working if
 
-- It stops and names the seams it intends to test at, and waits, before any test file exists.
+- It names the public seams it selected and starts testing without waiting for approval.
 - One test appears, goes red, gets just enough code to pass, and only then does the next test appear — not a batch of tests followed by a batch of code.
 - Test names read as capabilities ("user can checkout with valid cart"), not as internals ("checkout calls paymentService.process").
 - Expected values in assertions are literals you can trace to the spec, not values recomputed the way the code computes them.
@@ -91,4 +91,4 @@ No. Run against one ticket, it will happily propose work that belongs to a sibli
 grill-with-docs → to-spec → to-tickets → implement → code-review → retro
 ```
 
-[to-spec](https://michalkow.github.io/skills/to-spec) agrees the test seams up front, [implement](https://michalkow.github.io/skills/implement) drives `tdd` per ticket, and [code-review](https://michalkow.github.io/skills/code-review) checks afterwards that only the agreed seams were used — and owns the refactoring `tdd` no longer does. Its other neighbour is [codebase-design](https://michalkow.github.io/skills/codebase-design), the shared source of the seam and deep-module vocabulary `tdd` speaks. You can also reach for it on its own, whenever there is a concrete behaviour to build and no full spec in play. When you are unsure which skill fits your situation, [ask-michal](https://michalkow.github.io/skills/ask-michal) routes you.
+[to-spec](https://michalkow.github.io/skills/to-spec) records testing decisions up front, [implement](https://michalkow.github.io/skills/implement) drives `tdd` per ticket, and [code-review](https://michalkow.github.io/skills/code-review) checks the work against the spec — and owns the refactoring `tdd` no longer does. Its other neighbour is [codebase-design](https://michalkow.github.io/skills/codebase-design), the shared source of the seam and deep-module vocabulary `tdd` speaks. You can also reach for it on its own, whenever there is a concrete behaviour to build and no full spec in play. When you are unsure which skill fits your situation, [ask-michal](https://michalkow.github.io/skills/ask-michal) routes you.
