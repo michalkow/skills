@@ -14,13 +14,20 @@ Invoking this skill is the go-ahead for everything below, including the merge in
 
 ## Steps
 
-1. **Read the issue.** `gh issue view <number> --comments`. Done when you have the exception type and message, the stack trace, and the event properties (Current URL, Path, Library, and Environment when present).
+0. **Confirm it is a PostHog error.** Before any other step, `gh issue view <number> --json author,title,body` and check all three:
+   - The author is the PostHog app: `app/posthog` in `gh`, `posthog[bot]` in the API.
+   - The body has a **View in PostHog** link to an error-tracking fingerprint: `https://<region>.posthog.com/project/<id>/error-tracking/...`.
+   - It is not PostHog's test alert, which has the message `PostHog test alert`.
+
+   Any check fails: report **Not a PostHog error** in this thread, naming the failed check, and stop. Leave no comment, label, branch, or PR. The issue belongs to someone else's process.
+
+1. **Read the issue.** `gh issue view <number> --comments`. The body holds only the exception message, the browser and OS, and a **View in PostHog** link to the error's fingerprint. Open that fingerprint in PostHog, through the PostHog MCP server, for the stack trace, the occurrence counts, and the event properties: Current URL, Path, Library, and any custom properties. Done when you have the message, the stack trace, the Current URL, and the properties. No PostHog access: work from the issue alone and say so in the report.
 
    Then `gh pr list --state all --search "<number>"`. A PR that already references this issue means another run owns it: report **Already handled** with its link and stop.
 
 2. **Determine the environment.** Use the first signal that answers, and record which one it was:
-   1. An `environment` property, on the issue or on the issue's exception events in PostHog. Follow the issue's PostHog link, through the PostHog MCP server when one is available.
-   2. The host in Current URL, matched to the `app` field (`<app>.fly.dev`) or a hostname in `apps/shared/fly.<environment>.toml`.
+   1. A custom property on the fingerprint's exception events whose value is `production` or `development`. Apps sometimes set this themselves, often as `environment`, and sometimes they do not. It answers when the events you read carry the same value.
+   2. The host in the events' Current URL, matched to the production and development domains. For each environment, collect its domains from `apps/shared/fly.<environment>.toml`: the `app` field is `<app>.fly.dev`, plus any `VITE_APP_URL` or `VITE_SERVER_URL` in that file. When `apps/shared/.env.<environment>` is in the checkout, add `VITE_APP_URL` and `VITE_SERVER_URL` from it. Then `fly certs list -c apps/shared/fly.<environment>.toml` for custom hostnames on that Fly app. The URL's host equals one environment's domain: that is the environment. Match those live domains. `apps/shared/.env.<environment>.example` is a template, and `localhost` is a local machine, so neither decides the environment.
    3. For a server error with no URL, the `deployment.environment` attribute on PostHog logs or traces from the same service within a minute of the exception.
 
    The environment picks the base branch: `production` → `production`, `development` → `main`. Done when you have the environment and its source. No signal answers: treat it as `development`, and say so in the PR and the issue comment.
@@ -58,10 +65,11 @@ Invoking this skill is the go-ahead for everything below, including the merge in
 
 7. **Watch the deploy.** Only after a merge. Get the merge SHA (`gh pr view <pr> --json mergeCommit --jq .mergeCommit.oid`), find the production deploy workflow's run for it (`gh run list --commit <sha>`), and `gh run watch <id> --exit-status`. Then check health against `apps/shared/fly.production.toml` with `fly status`, `fly checks list`, and `fly machine list`: every machine `started`, every check `passing`. A failed run or an unhealthy app: fetch the failed log or recent app logs, and report. Do not roll back, redeploy, or rerun.
 
-8. **Report.** Post one comment on the issue, and end the run with the same report. It opens with exactly one outcome:
+8. **Report.** Post one comment on the issue, and end the run with the same report. A step-0 stop gets no comment. It opens with exactly one outcome:
    - **Not actionable**: why, and the evidence.
    - **PR ready**: environment and its source, root cause, severity verdict, the PR and backport links, and for a severe production error the gate that blocked the merge.
    - **Fixed in production**: root cause, PR and backport links, merge SHA, deploy run, health summary.
    - **Deploy failed** or **Unhealthy**: PR and backport links, the run or health output, and that the backport still waits for `main`.
    - **Already handled**: the existing PR.
+   - **Not a PostHog error**: the check from step 0 that failed. Reported in this thread only, never on the issue.
    - **Stopped**: which step, and why.

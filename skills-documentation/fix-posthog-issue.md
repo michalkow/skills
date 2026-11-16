@@ -6,18 +6,67 @@ It is built to run unattended. A webhook (for example a T3 Code webhook on new i
 
 ## When to reach for it
 
-You invoke this by naming `/fix-posthog-issue` in the webhook's instructions or by typing it. The agent won't reach for it on its own. Invoking it is the go-ahead for everything, including the production merge when the gates allow it.
+A T3 Code webhook task invokes it with `$fix-posthog-issue` at the start of its prompt (see below). The agent won't reach for it on its own. Invoking it is the go-ahead for everything, including the production merge when the gates allow it.
 
 | The work is… | Reach for |
 | --- | --- |
-| An error PostHog filed as a GitHub issue | `/fix-posthog-issue` |
+| An error PostHog filed as a GitHub issue | `$fix-posthog-issue` |
 | A problem you describe yourself, to ship as a PR | [fix-pr](https://michalkow.github.io/skills/fix-pr) |
 | A hard bug you are debugging interactively | [diagnosing-bugs](https://michalkow.github.io/skills/diagnosing-bugs) |
 | Shipping everything on `main` to production | [push-to-production](https://michalkow.github.io/skills/push-to-production) |
 
 ## Prerequisites
 
-`gh` is authenticated for the repo, and `fly` for the production health check. The repo follows the m5kdev layout: a `main` branch deployed to development, a `production` branch deployed to production, and `apps/shared/fly.<environment>.toml`. The PostHog MCP server makes the environment and severity evidence sharper but is optional. `docs/agents/triage-labels.md` names the `ready-for-human` label.
+`gh` is authenticated for the repo, and `fly` for the domain lookup and the production health check. The repo follows the m5kdev layout: a `main` branch deployed to development, a `production` branch deployed to production, and `apps/shared/fly.<environment>.toml`. The agent needs the PostHog MCP server. The GitHub issue holds only the error message, browser, OS, and a PostHog link. The stack trace, Current URL, occurrence counts, and any custom properties live in PostHog. Without that access, every error is treated as development: the run still opens a PR but never merges. `docs/agents/triage-labels.md` names the `ready-for-human` label.
+
+## Setting up the T3 Code task
+
+One scheduled task per app repo, triggered by that repo's GitHub webhook. T3 Code passes the agent only the request fields the prompt names, through `{{body.path}}`, `{{headers.name}}`, and `{{query.name}}` templates.
+
+| Field | Value |
+| --- | --- |
+| Runs on | The machine where `gh` and `fly` are signed in |
+| Destination | New thread each run |
+| Project | The app's project, for example `horecaai` |
+| Workspace | Create a new worktree |
+| Base branch | From main (remote). The skill makes its own branch, from `origin/production` for production errors |
+| Schedule | On webhook |
+| Skip requests older than | Empty, so errors filed while the machine was offline still run |
+| Filters | `headers.x-github-event` equals `issues`<br>`body.action` equals `opened`<br>`body.issue.user.login` equals `posthog[bot]`<br>`body.repository.full_name` equals `<owner>/<repo>`<br>`body.issue.title` not equals `Error: PostHog test alert` |
+| Duplicate request key | `{{headers.x-github-delivery}}` |
+| Coalesce key | Empty. Each issue is its own run |
+| Require signature | On. Header `x-hub-signature-256`, prefix `sha256=`, hex, with the same secret as the GitHub webhook |
+
+On GitHub, add the webhook under the repo's **Settings → Webhooks**: the task's URL as the payload URL, content type `application/json`, the shared secret, and only the **Issues** event.
+
+PostHog files its issues as `posthog[bot]` with no labels, and a human-opened issue must never start an unattended fix.
+
+### Filters check the source, the skill checks the content
+
+Filters compare whole fields (equals, not equals, starts with, is one of, exists). They have no "contains". So they settle everything a single field answers, and drop requests before any agent starts:
+
+- **Event and action.** Only a newly opened issue, never an edit, close, label, or comment.
+- **Author and repo.** Only issues PostHog filed, in this repo.
+- **The test alert.** PostHog's "send test alert" button files `Error: PostHog test alert`, which the title filter drops.
+
+Whether the issue describes an error needs its body read: an error-tracking issue links to `posthog.com/project/<id>/error-tracking/...`. No filter can see that, so the skill's **step 0** checks it, along with the author and the test alert again in case a filter is ever loosened. A failed check stops the run with no comment, label, branch, or PR. The prompt's second line makes that gate the agent's first move.
+
+### The prompt
+
+```text
+$fix-posthog-issue {{body.issue.html_url}}
+
+PostHog error tracking opened issue #{{body.issue.number}} in {{body.repository.full_name}}.
+First confirm it is a PostHog error-tracking issue (the skill's step 0). If it is not, stop and change nothing.
+Otherwise run the skill on that issue from start to finish. Nobody is watching this run,
+so don't stop to ask questions; record every decision on the issue and in the PRs.
+```
+
+The prompt starts with `$fix-posthog-issue` because the skill is user-invoked: it loads only when the prompt names it, the way you would type it.
+
+It passes the issue's URL, number, and repository, and nothing the error itself wrote. The title and body hold the error message from an end user's session. The agent reads them with `gh` and treats them as data. Templating them into the prompt would turn them into instructions.
+
+Keep the prompt this short. The procedure and the merge gates live in the skill, and a copy in the prompt drifts out of date.
 
 ## The environment decides the branch
 
@@ -27,7 +76,7 @@ You invoke this by naming `/fix-posthog-issue` in the webhook's instructions or 
 | production | `production` | `hotfix/<issue>-<slug>` into `production`, plus a backport into `main` | Only when severe and every gate holds |
 | unknown | `main` | as development | Never |
 
-The environment comes from the first signal that answers: an `environment` property on the error, the host in Current URL matched to the Fly app, or the `deployment.environment` attribute on logs and traces near the error.
+The environment comes from the first signal that answers. The app may have added it as a custom property on the error, often named `environment`, with a value of `production` or `development`. That property is optional. When it is absent, or the events disagree, the host in the error's URL is matched to the production and development domains: each deployment's public URL (`VITE_APP_URL`), its `<app>.fly.dev` host, and any custom hostname on that Fly app. A server error with no URL uses `deployment.environment` on logs and traces near the error.
 
 ## Severity and the merge gates
 
