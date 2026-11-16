@@ -26,11 +26,21 @@ The **jump** is the range after `template.version` in `.m5kdev.json`, through th
 
 A clean git worktree is required before the write. A dirty tree stops the run.
 
+## Conflicts
+
+The CLI writes only a conflict-free plan, so a dry run that reports conflicts no longer ends the run. The skill resolves each one in the app's own files: it adopts what the template changed and keeps what the app changed. Customizations that only clear by matching the template — a file whose historical baseline no longer renders, an app binary, a deliberately deleted file — are saved, set to the template, and put back after the write.
+
+On the default branch it first creates `m5kdev-update-<target>`, then commits the resolutions so the write sees a clean tree, and reruns the dry run until it is clean. It stops on a symlink, an invalid rename, an unloadable historical template, or a path still conflicting after two passes. `.m5kdev.json` is never hand-edited, and `init --force` is never used to dodge a conflict.
+
 ## Common questions
 
 **Does it always install latest?**
 
 Latest is the default. Name a version and that release is the target. `latest` is resolved once, then that exact version is what gets invoked, so the guides and the CLI are the same release.
+
+**Will it change my customized files?**
+
+Only to carry the template change into them. Each conflict and the resolution taken is listed in the report, and judgment calls — a deletion kept, a file moved to an app-owned path, a customization that no longer applies — are named for review.
 
 **Does a successful `update` mean the app is migrated?**
 
@@ -41,6 +51,7 @@ The CLI can exit 0 after reconciling templates while a guide in the jump is stil
 - You typed `/m5kdev-update`. It did not fire because an app mentioned m5kdev.
 - A named version is the target; otherwise the target is the resolved `create-m5kdev` latest.
 - A dirty worktree stops before anything is written.
+- Dry-run conflicts are resolved and committed on a branch, and the dry run reruns clean before the write.
 - **Updated** names the jump and which guides were applied.
 
 ## Where it fits

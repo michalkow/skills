@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 The update is done when every migration guide in the jump — from the app's current template version to the target — has been applied or skipped for the reason that guide gives.
 
-Typing `/m5kdev-update` is the go-ahead. Do not ask again.
+Typing `/m5kdev-update` is the go-ahead, including for the conflict-resolution commit in step 5. Do not ask again.
 
 **Version.** `latest`, unless the user named one. The npm package is `create-m5kdev`; the bin is `m5kdev`. Invoke `pnpm dlx create-m5kdev@<version>`.
 
@@ -29,16 +29,18 @@ Guides are `docs/guides/*migration*.md`. A guide is in the jump when its frontma
 
 3. **Guides.** Read `docs/packages/cli.md` and every guide in the jump. Local docs first. Done when each guide is on the list to apply, or skipped with the reason in its "Who needs this migration" section.
 
-4. **Clean tree.** `git status --porcelain`. Write-mode update requires a clean worktree. Dirty: stop and name the paths. Do not commit, stash, or discard.
+4. **Clean tree.** `git status --porcelain`. Write-mode update requires a clean worktree. Dirty: stop and name the paths. Uncommitted work is the user's; leave it for them to commit, stash, or discard.
 
-5. **Preview.** From the app root, `pnpm dlx create-m5kdev@<version> update --dry-run`. Needs network. Done when it exits 0 and the plan is in hand. Conflicts or a non-zero exit: show the output and stop.
+5. **Preview.** From the app root, `pnpm dlx create-m5kdev@<version> update --dry-run`. Needs network. Conflicts: resolve them by [CONFLICTS.md](CONFLICTS.md), commit, and rerun the dry run. Done when it exits 0 with no conflicts and the plan is in hand. Stop and show the output for a conflict CONFLICTS.md marks **Block**, a path still conflicting after two passes, or a non-zero exit that lists no conflicts.
 
 6. **Update.** `pnpm dlx create-m5kdev@<version> update`. Needs network. Done when it exits 0 and reports Applied or Already up to date. Non-zero or Blocked: show the output and stop. Pass `--yes`, `--platform`, or `--skip-install` only when the user asked for that flag. If the output says to run `pnpm install`, run it.
 
-7. **Apply the guides.** Apply the guides from step 3 that are not already in `appliedMigrations`, in the order `docs/packages/cli.md` gives. Follow the guide. A database step the guide names: use the app's existing Drizzle scripts that guide names. A guide that excludes this app: skip it and say why.
+7. **Reapply.** Work through `<scratchpad>/m5kdev-reapply/LIST.md` from step 5, if any. Merge each saved customization into the updated file: the template's new lines stay, the app's lines return. Done when every entry is back in place, or named with the reason it no longer applies.
 
-8. **Report** exactly one of:
+8. **Apply the guides.** Apply the guides from step 3 that are not already in `appliedMigrations`, in the order `docs/packages/cli.md` gives. Follow the guide. A database step the guide names: use the app's existing Drizzle scripts that guide names. A guide that excludes this app: skip it and say why.
 
-   - **Updated** — current version, target version, whether `update` wrote files, which guides were applied, which were skipped.
+9. **Report** exactly one of:
+
+   - **Updated** — current version, target version, whether `update` wrote files, each conflict with the resolution taken, which guides were applied, which were skipped. Name the judgment calls for review: a deletion kept, a file moved to an app-owned path, a customization that no longer applies.
    - **Stopped** — which step failed, and the output.
    - **Already current** — the template version already equals the target.

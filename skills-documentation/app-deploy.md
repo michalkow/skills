@@ -1,6 +1,6 @@
 ## What it does
 
-`app-deploy` puts **main** on Fly.io: checkout `main`, `git pull`, then `pnpm app:deploy` from the repo root, then asks `fly` whether the app is actually up. It does not deploy the branch you happened to be on, and it does not treat a zero exit from the deploy command as success. The run is done when Fly reports the app **healthy** — machines in the expected state, health checks passing — or when it can name why that is not true.
+`app-deploy` puts **main** on Fly.io. Before anything else it checks the current branch. When that branch is not `main`, it checks out `main`, then runs `git pull`. The rest of the skill runs only after that pull: `pnpm app:deploy` from the repo root, then asking `fly` whether the app is actually up. The tree that goes up is that updated `main`, and a zero exit from the deploy command is not success. The run is done when Fly reports the app **healthy** — machines in the expected state, health checks passing — or when it can name why that is not true.
 
 ## When to reach for it
 
@@ -16,6 +16,8 @@ You invoke this by typing `/app-deploy` — the [agent](https://michalkow.github
 | CI promotes `main` to `production` and deploys that branch | [push-to-production](https://michalkow.github.io/skills/push-to-production) |
 
 ## Prerequisites
+
+The branch check is the first prerequisite, and it always runs before the rest of the skill. The current branch is `main`. When it is not, the skill checks out `main`, then runs `git pull`. Already up to date still continues. The pull has to succeed before `pnpm app:deploy` or the Fly check. A dirty tree that blocks the checkout or the pull stops the run.
 
 The repo root must define `pnpm app:deploy`. `fly` (or `flyctl`) must be on your `PATH` and authenticated (`fly auth whoami`). `apps/shared/fly.toml` must exist — that is the Fly app this skill talks to. If any of those are missing it stops and names which, rather than installing the CLI, logging you in, or creating an app.
 
@@ -46,7 +48,7 @@ Neither. It runs the repo's `app:deploy` script against the app `apps/shared/fly
 ## It's working if
 
 - You typed `/app-deploy`. It did not fire because you mentioned Fly in passing.
-- It is on `main` and `git pull` has run before `pnpm app:deploy`. Already up to date still continues.
+- It checked the branch first. When the checkout was not `main`, it checked out `main`, then `git pull`, and only then ran `pnpm app:deploy`. Already up to date still continues.
 - After `pnpm app:deploy` succeeds, it still runs `fly status` / `checks list` / `machine list` before claiming success.
 - **Healthy** only appears when the machines are in the expected state and every check is `passing`.
 - A failed deploy is reported as **Deploy failed**, and no health check is run against it.
